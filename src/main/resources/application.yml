@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/licenta-alexandra-ionila
+    username: postgres
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  servlet:
+    multipart:
+      enabled: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    user: postgres
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: none
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+licenta:
+  jwtSecret: 'secret'
+  jwtExpirationMs: 86400000

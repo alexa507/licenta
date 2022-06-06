@@ -1,0 +1,31 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CentreComponent } from './admin/centre/centre.component';
+import { PrimaPaginaAdminComponent } from './admin/prima-pagina-admin/prima-pagina-admin.component';
+import { UserManagementComponent } from './admin/user-management/user-management.component';
+import { AutentificareComponent } from './autentificare/autentificare.component';
+import { AdminGuard } from './auth/admin.guard';
+import { InregistrareComponent } from './inregistrare/inregistrare.component';
+import { PrimaPaginaComponent } from './prima-pagina/prima-pagina.component';
+
+const routes: Routes = [
+  { path: 'prima-pagina', component: PrimaPaginaComponent },
+  { path: 'autentificare', component: AutentificareComponent },
+  { path: 'inregistrare', component: InregistrareComponent },
+  {
+    path: 'admin', canActivate: [AdminGuard],
+    children: [
+      { path: 'mentenanta-centre', component: CentreComponent },
+      { path: 'prima-pagina', component: PrimaPaginaAdminComponent },
+      { path: 'user-management', component: UserManagementComponent }
+    ]
+  },
+  { path: '', redirectTo: '/prima-pagina', pathMatch: 'full' },
+  { path: '**', redirectTo: '/prima-pagina', pathMatch: 'full' }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
