@@ -5,6 +5,7 @@ import { PrimaPaginaAdminComponent } from './admin/prima-pagina-admin/prima-pagi
 import { UserManagementComponent } from './admin/user-management/user-management.component';
 import { AutentificareComponent } from './autentificare/autentificare.component';
 import { AdminGuard } from './auth/admin.guard';
+import { UserGuard } from './auth/user.guard';
 import { InregistrareComponent } from './inregistrare/inregistrare.component';
 import { PrimaPaginaComponent } from './prima-pagina/prima-pagina.component';
 
@@ -13,11 +14,11 @@ const routes: Routes = [
   { path: 'autentificare', component: AutentificareComponent },
   { path: 'inregistrare', component: InregistrareComponent },
   {
-    path: 'admin', canActivate: [AdminGuard],
+    path: 'admin',
     children: [
-      { path: 'mentenanta-centre', component: CentreComponent },
-      { path: 'prima-pagina', component: PrimaPaginaAdminComponent },
-      { path: 'user-management', component: UserManagementComponent }
+      { path: 'mentenanta-centre', component: CentreComponent, canActivate: [UserGuard] },
+      { path: 'prima-pagina', component: PrimaPaginaAdminComponent, canActivate: [UserGuard] },
+      { path: 'user-management', component: UserManagementComponent, canActivate: [AdminGuard] }
     ]
   },
   { path: '', redirectTo: '/prima-pagina', pathMatch: 'full' },

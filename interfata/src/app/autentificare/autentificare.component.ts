@@ -21,13 +21,13 @@ export class AutentificareComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenService.getUser().roles;
+      this.roles = this.tokenService.getUser().roluri;
     }
   }
 
   onSubmit(): void {
     this.userService.autentificare(this.form).subscribe(data => {
-        this.tokenService.saveToken(data.accessToken);
+        this.tokenService.saveToken(data.token);
         this.tokenService.saveUser(data);
 
         this.isLoginFailed = false;

@@ -30,7 +30,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping(value = "/api/auth", produces = {MediaType.APPLICATION_JSON_VALUE},
+    consumes = {MediaType.APPLICATION_JSON_VALUE})
 public class AutentificareController {
 
     @Autowired
@@ -48,7 +49,7 @@ public class AutentificareController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @PostMapping(path = "/autentificare", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/autentificare")
     public ResponseEntity<?> authenticateUser(@RequestBody AutentificareDTO autentificareDTO) {
 
         Authentication authentication = authenticationManager.authenticate(
@@ -69,7 +70,7 @@ public class AutentificareController {
             roluri));
     }
 
-    @PostMapping(path = "/inregistrare", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/inregistrare")
     public ResponseEntity<String> registerUser(@RequestBody InregistrareDTO inregistrareDTO) {
         if (userRepository.existsByUsername(inregistrareDTO.getUsername())) {
             return ResponseEntity

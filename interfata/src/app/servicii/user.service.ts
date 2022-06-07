@@ -15,10 +15,10 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   autentificare(credentiale: any): Observable<any> {
-    return this.httpClient.post(this.URL + 'autentificare', credentiale);
+    return this.httpClient.post(this.URL + 'autentificare', credentiale, this.httpOptions);
   }
 
   inregistrare(user: any) {
-    return this.httpClient.post(this.URL + 'inregistrare', user)
+    return this.httpClient.post(this.URL + 'inregistrare', user, this.httpOptions)
   }
 }

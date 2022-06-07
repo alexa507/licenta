@@ -12,7 +12,7 @@ import { StocareTokenService } from '../servicii/stocare-token.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGuard implements CanActivate {
+export class UserGuard implements CanActivate {
 
   constructor(private tokenService: StocareTokenService, private router: Router) {
   }
@@ -24,7 +24,8 @@ export class AdminGuard implements CanActivate {
             console.log("User-ul nu este autentificat")
             return this.router.navigate(['/autentificare']);
         }
-        if(this.tokenService.getToken() && this.tokenService.getUser().roluri.includes('ADMIN')) {
+        console.log(this.tokenService.getUser());
+        if(this.tokenService.getToken() && this.tokenService.getUser().roluri.includes('USER')) {
             return true;
         } else {
             console.log("User-ul nu este autorizat")

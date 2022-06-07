@@ -16,4 +16,20 @@ export class PrimaPaginaComponent implements OnInit {
   goToInregistrare() {
     this.router.navigate(["/inregistrare"]);
   }
+
+  goToAdmin() {
+    this.router.navigate(["/admin/prima-pagina"]);
+  }
+
+  goToAdminCentre() {
+    this.router.navigate(["/admin/mentenanta-centre"]);
+  }
+
+  goToAdminUserManagement() {
+    this.router.navigate(["/admin/user-management"]);
+  }
+
+  goToLogin() {
+    this.router.navigate(["/autentificare"]);
+  }
 }
