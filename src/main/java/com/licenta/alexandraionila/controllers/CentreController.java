@@ -6,10 +6,12 @@ import com.licenta.alexandraionila.services.CentreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(value = "/api/centre", produces = {MediaType.APPLICATION_JSON_VALUE},
     consumes = {MediaType.APPLICATION_JSON_VALUE})
@@ -34,7 +36,7 @@ public class CentreController {
     }
 
     @PostMapping
-    public ResponseEntity<String> creazaCentru(@RequestBody CentruDTO centruDTO) {
+    public ResponseEntity<Centru> creazaCentru(@RequestBody CentruDTO centruDTO) {
         Centru centru = new Centru();
         centru.setAdresa(centruDTO.getAdresa());
         centru.setEmail(centruDTO.getEmail());
@@ -47,9 +49,7 @@ public class CentreController {
         centru.setUtilitati(String.join(",", centruDTO.getUtilitati()));
         centru.setOras(centruDTO.getOras());
 
-        centreService.save(centru);
-
-        return ResponseEntity.ok("Centrul a fost salvat cu succes!");
+        return ResponseEntity.ok(centreService.save(centru));
     }
 
     @PatchMapping(path = "/{id}")

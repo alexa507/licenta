@@ -25,5 +25,3 @@ export class JWTInterceptor implements HttpInterceptor {
 export const authInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true }
 ];
-
-

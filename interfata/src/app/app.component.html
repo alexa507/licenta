@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<p-toolbar [style]="{'z-index': '9','position': 'fixed', 'left': '0', 'top':'0', 'width':'100%', 'border-bottom':'1px solid darkgray', 'height':'5em'}">
+    <div class="grid">
+        <div class="col-4"></div>
+        <div class="col-4 logoCentral">
+            <img src="../assets/logo.png" style="cursor: pointer;" height="50" (click)="primaPagina()">
+        </div>
+        <div class="col-4 logoDreapta">
+            <i class="pi pi-cog" style="cursor: pointer;" (click)="admin()"></i>
+        </div>
+    </div>
+</p-toolbar>
+<div id="content">
+    <router-outlet></router-outlet>
+</div>

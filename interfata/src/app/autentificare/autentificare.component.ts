@@ -15,6 +15,7 @@ export class AutentificareComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  username: string = '';
 
   constructor(private tokenService: StocareTokenService, private userService: UserService, private router: Router) { }
 
@@ -22,6 +23,7 @@ export class AutentificareComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenService.getUser().roluri;
+      this.username = this.tokenService.getUser().username;
     }
   }
 

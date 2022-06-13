@@ -1,0 +1,19 @@
+.pi {
+    font-size: 2rem;
+}
+
+.grid {
+    width: 100%;
+}
+
+.logoCentral {
+    text-align: center;
+}
+
+.logoDreapta {
+    text-align: right;
+}
+
+#content {
+    margin-top: 7em;
+}

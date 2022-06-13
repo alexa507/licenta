@@ -1,1 +1,85 @@
-<p>centre works!</p>
+<div id="body">
+    <p-toast></p-toast>
+    <p-card [style]="{'margin-top': '15em'}" title="ADAUGA UN CENTRU">
+
+        <ng-template pTemplate="header">
+            ADAUGA UN CENTRU
+        </ng-template>
+        <div class="grid col-12">
+            <div class="col-2">
+                <label>Nume</label>
+            </div>
+            <div class="col-9">
+                <input type="text" pInputText [(ngModel)]="nume">
+            </div>
+
+            <div class="col-2">
+                <label>Adresa</label>
+            </div>
+            <div class="col-9">
+                <input type="text" pInputText [(ngModel)]="adresa">
+            </div>
+            
+            <div class="col-2">
+                <label>Oras</label>
+            </div>
+            <div class="col-9">
+                <input type="text" pInputText [(ngModel)]="oras">
+            </div>
+            
+            
+            <div class="col-2">
+                <label>Telefon</label>
+            </div>
+            <div class="col-9">
+                <input type="text" pInputText [(ngModel)]="telefon">
+            </div>            
+            
+            <div class="col-2">
+                <label>Email</label>
+            </div>
+            <div class="col-9">
+                <input type="text" pInputText [(ngModel)]="email">
+            </div>            
+            
+            <div class="col-2">
+                <label>Utilitati</label>
+            </div>
+            <div class="col-9">
+                <p-chips [style]='{"width":"60%"}' [(ngModel)]="utilitati" ></p-chips>
+            </div>
+
+            <div class="col-2">
+                <label>Nr locuri maxim</label>
+            </div>
+            <div class="col-9">
+                <input type="number" pInputText [(ngModel)]="nrLocuriMax">
+            </div>
+            
+            <div class="col-2">
+                <label>Nr locuri libere</label>
+            </div>
+            <div class="col-9">
+                <input type="number" pInputText [(ngModel)]="nrLocuriLibere">
+            </div>            
+            
+            <div class="col-2">
+                <label>Latitudine</label>
+            </div>
+            <div class="col-9">
+                <input type="number" pInputText [(ngModel)]="latitudine">
+            </div>
+            
+            <div class="col-2">
+                <label>Longitudine</label>
+            </div>
+            <div class="col-9">
+                <input type="number" pInputText [(ngModel)]="longitudine">
+            </div>
+        </div>
+        <ng-template pTemplate="footer">
+            <button pButton type="submit" label="Salveaza Centru" (click)="salveazaCentru()"></button>
+        </ng-template>
+        
+    </p-card>
+</div>
