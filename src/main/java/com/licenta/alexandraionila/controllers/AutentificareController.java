@@ -11,6 +11,8 @@ import com.licenta.alexandraionila.entities.User;
 import com.licenta.alexandraionila.exceptions.RolNotFoundException;
 import com.licenta.alexandraionila.repositories.RolRepository;
 import com.licenta.alexandraionila.repositories.UserRepository;
+import com.licenta.alexandraionila.services.RolService;
+import com.licenta.alexandraionila.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -38,10 +40,10 @@ public class AutentificareController {
     AuthenticationManager authenticationManager;
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
     @Autowired
-    RolRepository rolRepository;
+    RolService rolService;
 
     @Autowired
     PasswordEncoder encoder;
@@ -72,13 +74,13 @@ public class AutentificareController {
 
     @PostMapping(path = "/inregistrare")
     public ResponseEntity<String> registerUser(@RequestBody InregistrareDTO inregistrareDTO) {
-        if (userRepository.existsByUsername(inregistrareDTO.getUsername())) {
+        if (userService.existsByUsername(inregistrareDTO.getUsername())) {
             return ResponseEntity
                 .badRequest()
                 .body("Eroare: Username-ul este deja folosit!");
         }
 
-        if (userRepository.existsByEmail(inregistrareDTO.getEmail())) {
+        if (userService.existsByEmail(inregistrareDTO.getEmail())) {
             return ResponseEntity
                 .badRequest()
                 .body("Eroare: Email-ul este deja folosit!");
@@ -96,19 +98,19 @@ public class AutentificareController {
         Set<Rol> roluri = new HashSet<>();
 
         if (roluriStr == null) {
-            Rol userRole = rolRepository.findByNume(EnumerareRoluri.USER)
+            Rol userRole = rolService.findByNume(EnumerareRoluri.USER)
                 .orElseThrow(() -> new RolNotFoundException("Eroare: Rolul nu a fost gasit."));
             roluri.add(userRole);
         } else {
             roluriStr.forEach(role -> {
                 switch (role) {
                     case "admin":
-                        Rol adminRole = rolRepository.findByNume(EnumerareRoluri.ADMIN)
+                        Rol adminRole = rolService.findByNume(EnumerareRoluri.ADMIN)
                             .orElseThrow(() -> new RolNotFoundException("Eroare: Rolul nu a fost gasit."));
                         roluri.add(adminRole);
                         break;
                     default:
-                        Rol userRole = rolRepository.findByNume(EnumerareRoluri.USER)
+                        Rol userRole = rolService.findByNume(EnumerareRoluri.USER)
                             .orElseThrow(() -> new RolNotFoundException("Eroare: Rolul nu a fost gasit."));
                         roluri.add(userRole);
                 }
@@ -116,8 +118,8 @@ public class AutentificareController {
         }
 
         user.setRoluri(roluri);
-        userRepository.save(user);
+        userService.save(user);
 
-        return ResponseEntity.ok("User registered successfully!");
+        return ResponseEntity.ok("User-ul a fost inregistrat cu succes!");
     }
 }
