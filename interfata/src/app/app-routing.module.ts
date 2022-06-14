@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdaugaEditeazaCentruComponent } from './admin/adauga-editeaza-centru/adauga-editeaza-centru.component';
 import { CentreComponent } from './admin/centre/centre.component';
 import { PrimaPaginaAdminComponent } from './admin/prima-pagina-admin/prima-pagina-admin.component';
 import { UserManagementComponent } from './admin/user-management/user-management.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
     children: [
       { path: 'mentenanta-centre', component: CentreComponent, canActivate: [UserGuard] },
       { path: 'prima-pagina', component: PrimaPaginaAdminComponent, canActivate: [UserGuard] },
+      { path: 'adauga-editeaza-centru', component: AdaugaEditeazaCentruComponent, canActivate: [UserGuard] },
       { path: 'user-management', component: UserManagementComponent, canActivate: [AdminGuard] }
     ]
   },

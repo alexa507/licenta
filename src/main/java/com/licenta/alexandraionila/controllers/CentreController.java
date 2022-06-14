@@ -1,6 +1,7 @@
 package com.licenta.alexandraionila.controllers;
 
 import com.licenta.alexandraionila.dtos.CentruDTO;
+import com.licenta.alexandraionila.dtos.Message;
 import com.licenta.alexandraionila.entities.Centru;
 import com.licenta.alexandraionila.services.CentreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,9 +54,9 @@ public class CentreController {
     }
 
     @PatchMapping(path = "/{id}")
-    public ResponseEntity<String> editCentru(@PathVariable Integer id, @RequestBody CentruDTO centruDTO) {
+    public ResponseEntity<Message> editCentru(@PathVariable Integer id, @RequestBody CentruDTO centruDTO) {
         if(centreService.findById(id).isEmpty()) {
-            return  ResponseEntity.badRequest().body("Centrul nu exista!");
+            return  ResponseEntity.badRequest().body(new Message("Centrul nu exista!"));
         }
 
         Centru centruPtEdit = centreService.findById(id).get();
@@ -71,17 +72,17 @@ public class CentreController {
         centruPtEdit.setOras(centruDTO.getOras());
 
         centreService.save(centruPtEdit);
-        return ResponseEntity.ok("Centrul a fost editat cu succes!");
+        return ResponseEntity.ok(new Message("Centrul a fost editat cu succes!"));
     }
 
-    @DeleteMapping(path = "/{id}")
-    public ResponseEntity<String> deleteCentru(@PathVariable Integer id) {
-        if(centreService.findById(id).isEmpty()) {
-            return  ResponseEntity.badRequest().body("Centrul nu exista!");
+    @DeleteMapping(path = "/sterge/{id}")
+    public ResponseEntity<Message> deleteCentru(@PathVariable String id) {
+        if(centreService.findById(Integer.valueOf(id)).isEmpty()) {
+            return  ResponseEntity.badRequest().body(new Message("Centrul nu exista!"));
         }
 
-        centreService.delete(id);
+        centreService.delete(Integer.valueOf(id));
 
-        return ResponseEntity.ok("Centrul a fost sters cu succes!");
+        return ResponseEntity.ok(new Message("Centrul a fost sters cu succes!"));
     }
 }

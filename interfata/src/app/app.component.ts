@@ -14,6 +14,7 @@ export class AppComponent {
 
   primaPagina() {
     this.router.navigate(['/prima-pagina']);
+    sessionStorage.removeItem('centruPtEdit');
   }
 
   admin() {

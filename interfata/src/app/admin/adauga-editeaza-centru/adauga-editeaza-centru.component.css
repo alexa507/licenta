@@ -1,0 +1,29 @@
+#titlu{
+    width: 100%;
+    text-align: center;
+}
+
+#body {
+    width: 60%;
+    margin: auto;
+}
+
+.col-2 {
+    margin-top: 1.5em;
+}
+
+.col-9 {
+    margin-top: 1em;
+}
+
+input {
+    width: 60%;
+}
+
+.grid {
+    margin-left: 20%;
+}
+
+button {
+    margin-left: 45%;
+}

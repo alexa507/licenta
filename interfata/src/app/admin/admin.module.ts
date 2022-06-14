@@ -14,6 +14,10 @@ import { ChipsModule } from 'primeng/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JWTInterceptor } from '../auth/jwt.interceptor';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { AccordionModule } from 'primeng/accordion';
+import { TableModule } from 'primeng/table';
+import { AdaugaEditeazaCentruComponent } from './adauga-editeaza-centru/adauga-editeaza-centru.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 
@@ -21,7 +25,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
   declarations: [
     CentreComponent,
     PrimaPaginaAdminComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    AdaugaEditeazaCentruComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +40,9 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     ChipsModule,
     BrowserAnimationsModule,
     OAuthModule.forRoot(),
+    AccordionModule,
+    TableModule,
+    ConfirmDialogModule
   ],
   providers: [JWTInterceptor]
 })

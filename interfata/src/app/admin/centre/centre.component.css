@@ -1,24 +1,15 @@
 #body {
-    width: 50%;
+    width: 60%;
     margin: auto;
 }
 
-.col-2 {
-    margin-top: 1.5em;
+#titlu {
+    width: 100%;
+    text-align: center;
 }
 
-.col-9 {
-    margin-top: 1em;
-}
-
-input {
-    width: 60%;
-}
-
-.grid {
-    margin-left: 20%;
-}
-
-button {
-    margin-left: 45%;
+#adauga {
+    margin-top: 3em;
+    width: 100%;
+    text-align: center;
 }
