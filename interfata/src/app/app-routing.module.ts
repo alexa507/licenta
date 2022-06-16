@@ -7,6 +7,7 @@ import { UserManagementComponent } from './admin/user-management/user-management
 import { AutentificareComponent } from './autentificare/autentificare.component';
 import { AdminGuard } from './auth/admin.guard';
 import { UserGuard } from './auth/user.guard';
+import { CautaCentruComponent } from './cauta-centru/cauta-centru.component';
 import { InregistrareComponent } from './inregistrare/inregistrare.component';
 import { PrimaPaginaComponent } from './prima-pagina/prima-pagina.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'prima-pagina', component: PrimaPaginaComponent },
   { path: 'autentificare', component: AutentificareComponent },
   { path: 'inregistrare', component: InregistrareComponent },
+  { path: 'centre', component: CautaCentruComponent },
   {
     path: 'admin',
     children: [

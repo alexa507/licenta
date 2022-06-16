@@ -17,6 +17,8 @@
                     <th>Email</th>
                     <th>Nr locuri maxim</th>
                     <th>Nr locuri libere</th>
+                    <th>Latitudine</th>
+                    <th>Longitudine</th>
                     <th>Sterge</th>
                     <th>Editeaza</th>
                 </tr>
@@ -31,6 +33,8 @@
                     <td>{{centru.email}}</td>
                     <td>{{centru.nrLocuriMax}}</td>
                     <td>{{centru.nrLocuriLibere}}</td>
+                    <td>{{centru.latitudine}}</td>
+                    <td>{{centru.longitudine}}</td>
                     <td><button id="deleteButton" pButton type="button" (click)="deleteCentru(centru)"
                             label="Sterge"></button></td>
                     <td><button id="editButton" pButton type="button" (click)="editeazaCentru(centru)"

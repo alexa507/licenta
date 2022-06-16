@@ -45,6 +45,6 @@ export class AutentificareComponent implements OnInit {
   }
 
   navigareLaAdmin() {
-    this.router.navigate(['/admin/pagina-principala']);
+    this.router.navigate(['/admin/prima-pagina']);
   }
 }

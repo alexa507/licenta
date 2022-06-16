@@ -15,13 +15,17 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { CautaCentruComponent } from './cauta-centru/cauta-centru.component';
+import { GMapModule } from 'primeng/gmap';
+import { ProgressSpinnerModule } from 'primeng/progressspinner'
 
 @NgModule({
   declarations: [
     AppComponent,
     PrimaPaginaComponent,
     AutentificareComponent,
-    InregistrareComponent
+    InregistrareComponent,
+    CautaCentruComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,8 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     InputTextModule,
     CardModule,
     ToastModule,
+    GMapModule,
+    ProgressSpinnerModule
   ],
   providers: [JWTInterceptor],
   bootstrap: [AppComponent]

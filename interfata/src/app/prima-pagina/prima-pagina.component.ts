@@ -32,4 +32,8 @@ export class PrimaPaginaComponent implements OnInit {
   goToLogin() {
     this.router.navigate(["/autentificare"]);
   }
+
+  goToCautaCentre() {
+    this.router.navigate(['/centre']);
+  }
 }
