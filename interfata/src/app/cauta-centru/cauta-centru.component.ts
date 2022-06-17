@@ -20,18 +20,20 @@ export class CautaCentruComponent implements OnInit {
   incarcat: boolean = false;
   latSum: number = 0;
   lngSum: number = 0;
+  arataDetaliiCentru: boolean = false;
+  infoWindow: any;
+
 
   constructor(private serviceCentre: CentreService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getCentre();
-
+    this.infoWindow = new google.maps.InfoWindow();
   }
 
   getLocation(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
         this.userLong = position.coords.longitude;
         this.userLat = position.coords.latitude;
         this.harta = {
@@ -39,7 +41,12 @@ export class CautaCentruComponent implements OnInit {
           zoom: 12
         };
         this.incarcat = true;
-        console.log(this.harta);
+      }, error => {
+        this.harta = {
+          center: { lat: this.latSum / this.centreHarta.length, lng: this.lngSum / this.centreHarta.length },
+          zoom: 12
+        };
+        this.incarcat = true;
       });
     } else {
       console.log("No support for geolocation");
@@ -54,12 +61,12 @@ export class CautaCentruComponent implements OnInit {
   getCentre() {
     this.serviceCentre.getCentre().subscribe(data => {
       this.centre = data;
-      console.log(this.centre);
       this.centre.forEach(centru => {
         var marker = new google.maps.Marker({
           position: { lat: centru.latitudine, lng: centru.longitudine }, title: centru.nume + "   ",
           animation: google.maps.Animation.DROP,
-          dropOffPoint: centru
+          dropOffPoint: centru,
+          visible: true
         } as google.maps.MarkerOptions);
         marker.addListener('click', function () {
           if (marker.getAnimation() !== null) {
@@ -72,8 +79,10 @@ export class CautaCentruComponent implements OnInit {
         this.latSum = this.latSum + centru.latitudine;
         this.lngSum = this.lngSum + centru.longitudine;
       });
+      console.log(this.latSum);
+      console.log(this.lngSum);
       this.getLocation();
-      
+
     }, error => {
       this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la preluarea centrelor.' })
     })
@@ -89,18 +98,26 @@ export class CautaCentruComponent implements OnInit {
 
   handleOverlayClick(event: any) {
     for (let marker of this.centreHarta) {
-      if (marker.animation != null) {
-        marker.setAnimation(null);
-      }
+      marker.setAnimation(null);
     }
     event.overlay.addListener('click', function () {
       if (event.overlay.getAnimation() !== null) {
         event.overlay.setAnimation(null);
       } else {
-        event.overlay.setAnimation(google.maps.Animation.BOUNCE);
+        event.overlay.setAnimation(google.maps.Animation.DROP);
+        event.overlay.setAnimation(null);
       }
     });
-    this.centruSelectat = event.overlay;
+
+    this.centruSelectat = event.overlay.dropOffPoint;
+    this.infoWindow.setContent('' + this.centruSelectat.nume + '');
+    this.infoWindow.open(event.map, event.overlay);
+    // event.map.setCenter();
     console.log(this.centruSelectat);
+    this.arataDetaliiCentru = true;
+  }
+
+  rezerva() {
+
   }
 }

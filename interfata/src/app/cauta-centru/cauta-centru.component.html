@@ -1,16 +1,72 @@
 <p-progressSpinner *ngIf="!incarcat" [style]="{width: '20%', 'margin-left':'40%', 'margin-top':'6em' }" strokeWidth="5"
   animationDuration="4s"></p-progressSpinner>
 <div *ngIf="incarcat" id="body">
-  <p-card styleClass="p-card-shadow">
-    <div id="dropOffMap">
-      <p-gmap #gmap [style]="{'width': '100%','height':'100%'}" [options]="harta" [overlays]="centreHarta"
-        (onOverlayClick)="handleOverlayClick($event)">
-      </p-gmap>
-    </div>
-    <div id="butoaneHarta">
-      <button type="button" pButton label="Zoom In" icon="pi pi-plus" (click)="zoomIn(gmap.getMap())"
-        style="margin-right:.25em"></button>
-      <button type="button" pButton label="Zoom Out" icon="pi pi-minus" (click)="zoomOut(gmap.getMap())"></button>
-    </div>
-  </p-card>
+  <div id="harta">
+    <p-card styleClass="p-card-shadow">
+      <div id="explicatiiHarta">
+        <h3>Cautati centre apropiate de locatia dumne</h3>
+      </div>
+      <div id="hartaCentre">
+        <p-gmap #gmap [style]="{'width': '100%','height':'100%'}" [options]="harta" [overlays]="centreHarta"
+          (onOverlayClick)="handleOverlayClick($event)">
+        </p-gmap>
+      </div>
+      <div id="detaliiCentruSelectat" *ngIf="arataDetaliiCentru">
+        <div id="titluCentru">
+          <h3>Centru selectat</h3>
+        </div>
+        <div class="grid" id="infoCentru">
+          <div class="col-5 grid">
+            <div class="col-4">
+              <label>Centru: </label>
+            </div>
+            <div class="col-8">
+              <label>{{centruSelectat.nume}}</label>
+            </div>
+            <div class="col-4">
+              <label>Adresa: </label>
+            </div>
+            <div class="col-8">
+              <label>{{centruSelectat.adresa}}</label>
+            </div>
+            <div class="col-4">
+              <label>Nr locuri libere: </label>
+            </div>
+            <div class="col-8">
+              <label>{{centruSelectat.nrLocuriLibere}}</label>
+            </div>
+          </div>
+          <div class="col-5 grid">
+            <div class="col-4">
+              <label>Telefon: </label>
+            </div>
+            <div class="col-8">
+              <label>{{centruSelectat.telefon}}</label>
+            </div>
+            <div class="col-4">
+              <label>Email: </label>
+            </div>
+            <div class="col-8">
+              <label>{{centruSelectat.email}}</label>
+            </div>
+            <div class="col-4">
+              <label>Utilitati: </label>
+            </div>
+            <div class="col-8">
+              <label>{{centruSelectat.utilitati}}</label>
+            </div>
+          </div>
+          <div class="col-2">
+            <button pButton type="button" id="butonRezerva" label="Rezerva" (click)="rezerva()"></button>
+          </div>
+        </div>
+      </div>
+    </p-card>
+  </div>
+  <div id="listaCentre">
+    <p-card>
+
+    </p-card>
+  </div>
+  
 </div>

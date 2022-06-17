@@ -1,16 +1,36 @@
-#butoaneHarta {
-    text-align: center;
-    margin-top: 2em;
-}
-
 #body {
     width: 60%;
     margin-left: 20%;
     margin-top: 3em;
 }
 
-#dropOffMap {
+#hartaCentre {
     height: 30em;
     width: 90%;
     margin-left: 5%;
 }
+
+#titluCentru {
+    text-align: center;
+}
+
+#detaliiCentruSelectat {
+    margin-top: 2em;
+    width: 90%;
+    margin-left: 5%;
+}
+
+#infoCentru {
+    border: 2px solid indigo;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#butonRezerva {
+    margin-top: 1.5em;
+}
+
+#listaCentre {
+    margin-top: 2em;
+}
+
