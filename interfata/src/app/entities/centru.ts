@@ -5,7 +5,7 @@ export interface Centru {
     oras: string;
     telefon: string;
     email: string;
-    utilitati: string[];
+    utilitati: string;
     nrLocuriMax: number;
     nrLocuriLibere: number;
     latitudine: number;

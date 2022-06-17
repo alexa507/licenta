@@ -1,72 +1,155 @@
 <p-progressSpinner *ngIf="!incarcat" [style]="{width: '20%', 'margin-left':'40%', 'margin-top':'6em' }" strokeWidth="5"
   animationDuration="4s"></p-progressSpinner>
+  <p-toast></p-toast>
 <div *ngIf="incarcat" id="body">
-  <div id="harta">
-    <p-card styleClass="p-card-shadow">
-      <div id="explicatiiHarta">
-        <h3>Cautati centre apropiate de locatia dumne</h3>
-      </div>
-      <div id="hartaCentre">
-        <p-gmap #gmap [style]="{'width': '100%','height':'100%'}" [options]="harta" [overlays]="centreHarta"
-          (onOverlayClick)="handleOverlayClick($event)">
-        </p-gmap>
-      </div>
-      <div id="detaliiCentruSelectat" *ngIf="arataDetaliiCentru">
-        <div id="titluCentru">
-          <h3>Centru selectat</h3>
+  <div id="harta" class="grid">
+    <div class="col-8">
+      <p-card styleClass="p-card-shadow" [style]="{'height': '45em'}">
+        <div id="explicatiiHarta">
+          <h3>Cautati centre apropiate de locatia dumneavoastra</h3>
         </div>
-        <div class="grid" id="infoCentru">
-          <div class="col-5 grid">
-            <div class="col-4">
-              <label>Centru: </label>
-            </div>
-            <div class="col-8">
-              <label>{{centruSelectat.nume}}</label>
-            </div>
-            <div class="col-4">
-              <label>Adresa: </label>
-            </div>
-            <div class="col-8">
-              <label>{{centruSelectat.adresa}}</label>
-            </div>
-            <div class="col-4">
-              <label>Nr locuri libere: </label>
-            </div>
-            <div class="col-8">
-              <label>{{centruSelectat.nrLocuriLibere}}</label>
-            </div>
-          </div>
-          <div class="col-5 grid">
-            <div class="col-4">
-              <label>Telefon: </label>
-            </div>
-            <div class="col-8">
-              <label>{{centruSelectat.telefon}}</label>
-            </div>
-            <div class="col-4">
-              <label>Email: </label>
-            </div>
-            <div class="col-8">
-              <label>{{centruSelectat.email}}</label>
-            </div>
-            <div class="col-4">
-              <label>Utilitati: </label>
-            </div>
-            <div class="col-8">
-              <label>{{centruSelectat.utilitati}}</label>
-            </div>
-          </div>
-          <div class="col-2">
-            <button pButton type="button" id="butonRezerva" label="Rezerva" (click)="rezerva()"></button>
-          </div>
+        <div id="hartaCentre">
+          <p-gmap #gmap [style]="{'width': '100%','height':'100%'}" [options]="harta" [overlays]="centreHarta"
+            (onOverlayClick)="handleOverlayClick($event)">
+          </p-gmap>
         </div>
-      </div>
-    </p-card>
-  </div>
-  <div id="listaCentre">
-    <p-card>
+      </p-card>
+    </div>
+    <div class="col-4">
+      <div id="centruSelectat">
+        <p-card styleClass="p-card-shadow" [style]="{'height': '45em'}">
+          <div id="titluDreapta">
+            <h3 *ngIf="arataDetaliiCentru">Centru selectat</h3>
+            <h3 *ngIf="!arataDetaliiCentru">Selectati un centru de pe harta sau folositi cautarea detaliata de mai jos
+            </h3>
+          </div>
+          <div id="cardDreapta">
+            <div class="grid" id="infoCentru" *ngIf="arataDetaliiCentru">
+              <div class="col-4">
+                <label>Centru: </label>
+              </div>
+              <div class="col-8">
+                <label>{{centruSelectat.nume}}</label>
+              </div>
+              <div class="col-4">
+                <label>Adresa: </label>
+              </div>
+              <div class="col-8">
+                <label>{{centruSelectat.adresa}}</label>
+              </div>
+              <div class="col-4">
+                <label>Nr locuri libere: </label>
+              </div>
+              <div class="col-8">
+                <label>{{centruSelectat.nrLocuriLibere}}</label>
+              </div>
+              <div class="col-4">
+                <label>Telefon: </label>
+              </div>
+              <div class="col-8">
+                <label>{{centruSelectat.telefon}}</label>
+              </div>
+              <div class="col-4">
+                <label>Email: </label>
+              </div>
+              <div class="col-8">
+                <label>{{centruSelectat.email}}</label>
+              </div>
+              <div class="col-4">
+                <label>Utilitati: </label>
+              </div>
+              <div class="col-8">
+                <label>{{centruSelectat.utilitati}}</label>
+              </div>
+              <div id="rezervaDinHarta">
+                <button pButton type="button" id="butonRezerva" label="Rezerva" (click)="rezerva()"></button>
+              </div>
+            </div>
+            <div id="cautareDetaliata"  *ngIf="!arataDetaliiCentru" class="p-grid">
+              <div class="col-4">
+                <label>Oras: </label>
+              </div>
+              <div class="col-8">
+                <p-dropdown [options]="orasePtCautare" [(ngModel)]="orasSelectatCautare" placeholder="Selectati un oras" optionLabel="name" [showClear]="true"></p-dropdown>
+              </div>
+              <div class="col-4">
+                <label>Nr locuri libere: </label>
+              </div>
+              <div class="col-8">
+                <p-inputNumber [(ngModel)]="nrLocuriLiberCautare"></p-inputNumber>
 
+              </div>
+              <div class="col-4">
+                <label>Utilitati: </label>
+              </div>
+              <div class="col-8">
+                <p-multiSelect [options]="utilitatiPtCautare" [(ngModel)]="utilitatiSelectateCautare" placeholder="Selectati utilitati" optionLabel="name"></p-multiSelect>
+              </div>
+              <div class="col-12" id="butonCautareDetaliata">
+                <button pButton type="button" label="Cauta centre" (click)="cautareDetaliata()"></button>
+              </div>
+            </div>
+          </div>
+        </p-card>
+      </div>
+    </div>
+
+  </div>
+  <div id="listaCentre" *ngIf="cautareCentreDetaliata">
+    <p-card>
+      <p-table [value]="centreFiltrareDupaCautare" [rows]="5" [showCurrentPageReport]="true" styleClass="p-datatable-customers"
+        [paginator]="true" [globalFilterFields]="['nume','oras', 'nrLocuriLibere', 'utilitati']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Id</th>
+            <th pSortableColumn="nume">Nume <p-sortIcon field="nume"></p-sortIcon>
+            </th>
+            <th pSortableColumn="oras">Oras <p-sortIcon field="oras"></p-sortIcon>
+            </th>
+            <th>Adresa</th>
+            <th>Telefon</th>
+            <th>Email</th>
+            <th pSortableColumn="nrLocuriLibere">Nr locuri libere <p-sortIcon field="nrLocuriLibere"></p-sortIcon>
+            </th>
+            <th pSortableColumn="utilitati">Utilitati <p-sortIcon field="utilitati"></p-sortIcon>
+            </th>
+            <th>Rezerva</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>
+              <p-columnFilter type="text" field="nume"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="oras"></p-columnFilter>
+            </th>
+            <th>
+              <p-columnFilter type="text" field="adresa"></p-columnFilter>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+              <p-columnFilter type="text" field="utilitati"></p-columnFilter>
+            </th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-centru>
+          <tr>
+            <td>{{centru.id}}</td>
+            <td>{{centru.nume}}</td>
+            <td>{{centru.oras}}</td>
+            <td>{{centru.adresa}}</td>
+            <td>{{centru.telefon}}</td>
+            <td>{{centru.email}}</td>
+            <td>{{centru.nrLocuriLibere}}</td>
+            <td>{{centru.utilitati}}</td>
+            <td><button pButton type="button" label="Rezerva" (click)="rezervaDinTable(centru)"></button> </td>
+          </tr>
+        </ng-template>
+      </p-table>
     </p-card>
   </div>
-  
+
 </div>

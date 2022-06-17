@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { of } from 'rxjs';
 import { Centru } from '../entities/centru';
 import { CentreService } from '../servicii/centre.service';
 
@@ -22,7 +23,14 @@ export class CautaCentruComponent implements OnInit {
   lngSum: number = 0;
   arataDetaliiCentru: boolean = false;
   infoWindow: any;
-
+  orasePtCautare: any[] = [];
+  utilitatiPtCautare: any[] = [];
+  orasSelectatCautare: any = null;
+  nrLocuriLiberCautare: any = null;
+  utilitatiSelectateCautare: any[] = [];
+  centreFiltrareDupaCautare: Centru[] = [];
+  cautareCentreDetaliata: boolean = false;
+  faraRezultate: boolean = false;
 
   constructor(private serviceCentre: CentreService, private messageService: MessageService) { }
 
@@ -61,7 +69,11 @@ export class CautaCentruComponent implements OnInit {
   getCentre() {
     this.serviceCentre.getCentre().subscribe(data => {
       this.centre = data;
+      console.log(this.centre)
+      let orase: string[] = [];
+      let utilitati: string[] = [];
       this.centre.forEach(centru => {
+        //creaza lista de markere pentru harta
         var marker = new google.maps.Marker({
           position: { lat: centru.latitudine, lng: centru.longitudine }, title: centru.nume + "   ",
           animation: google.maps.Animation.DROP,
@@ -78,7 +90,28 @@ export class CautaCentruComponent implements OnInit {
         this.centreHarta.push(marker);
         this.latSum = this.latSum + centru.latitudine;
         this.lngSum = this.lngSum + centru.longitudine;
+
+        //creaza lista de orase unice
+        if(!orase.includes(centru.oras.toLowerCase())) {
+          orase.push(centru.oras.toLowerCase());
+        }
+
+        //creaza lista de utilitati unice
+        let utilitatiCentru = centru.utilitati.split(',');
+        utilitatiCentru.forEach(uc => {
+          if(!utilitati.includes(uc.toLowerCase())) {
+            utilitati.push(uc.toLowerCase());
+          }
+        });
       });
+      //creaza lista pentru dropdown ul de oras in cautare avansata
+      orase.forEach(oras => {
+        this.orasePtCautare.push({name: oras.toUpperCase(), code: oras});
+      });
+      //creaza lista pentru dropdown ul de utilitati in cautare avansata
+      utilitati.forEach(utilitate => {
+        this.utilitatiPtCautare.push({name: utilitate.toUpperCase(), code: utilitate});
+      })
       console.log(this.latSum);
       console.log(this.lngSum);
       this.getLocation();
@@ -119,5 +152,53 @@ export class CautaCentruComponent implements OnInit {
 
   rezerva() {
 
+  }
+
+  rezervaDinTable(centru: Centru) {
+
+  }
+
+  cautareDetaliata() {
+    this.cautareCentreDetaliata = false;
+    this.centreFiltrareDupaCautare = [];
+    console.log(this.nrLocuriLiberCautare);
+    if (this.orasSelectatCautare == null || this.nrLocuriLiberCautare == null) {
+      this.messageService.add({ severity: 'warn', summary: '', detail: 'Alegeti orasul si numarul de locuri necesare.' })
+      console.log("fara nimic")
+    } else if (this.utilitatiSelectateCautare.length > 0) {
+      console.log("cu utilitati")
+
+      this.centre.forEach(centru => {
+        let utilitati: string[] = centru.utilitati.split(',');
+        let utilitatiSelectate: string[] = [];
+        this.utilitatiSelectateCautare.forEach(usc => {
+          utilitatiSelectate.push(usc.code);
+        });
+        let utilitatiCheck = utilitatiSelectate.every(u => utilitati.includes(u));
+
+        if (centru.oras.toLowerCase() == this.orasSelectatCautare.code && centru.nrLocuriLibere > this.nrLocuriLiberCautare && utilitatiCheck) {
+          this.centreFiltrareDupaCautare.push(centru);
+        }
+      });
+      if(this.centreFiltrareDupaCautare.length == 0) {
+        this.faraRezultate = true;
+      } else {
+        this.cautareCentreDetaliata = true;
+      }
+    } else {
+      console.log("fara utilitati")
+      this.centre.forEach(centru => {
+        if (centru.oras.toLowerCase() == this.orasSelectatCautare.code && centru.nrLocuriLibere > this.nrLocuriLiberCautare) {
+          this.centreFiltrareDupaCautare.push(centru);
+        }
+      });
+
+      if(this.centreFiltrareDupaCautare.length == 0) {
+        this.faraRezultate = true;
+      } else {
+        this.cautareCentreDetaliata = true;
+      }
+    }
+    console.log(this.centreFiltrareDupaCautare);
   }
 }

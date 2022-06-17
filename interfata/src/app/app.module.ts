@@ -17,7 +17,11 @@ import { ToastModule } from 'primeng/toast';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { CautaCentruComponent } from './cauta-centru/cauta-centru.component';
 import { GMapModule } from 'primeng/gmap';
-import { ProgressSpinnerModule } from 'primeng/progressspinner'
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner'
     CardModule,
     ToastModule,
     GMapModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    TableModule,
+    DropdownModule,
+    MultiSelectModule,
+    InputNumberModule
   ],
   providers: [JWTInterceptor],
   bootstrap: [AppComponent]
