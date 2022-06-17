@@ -73,60 +73,55 @@ export class CautaCentruComponent implements OnInit {
       let orase: string[] = [];
       let utilitati: string[] = [];
       this.centre.forEach(centru => {
-        //creaza lista de markere pentru harta
-        var marker = new google.maps.Marker({
-          position: { lat: centru.latitudine, lng: centru.longitudine }, title: centru.nume + "   ",
-          animation: google.maps.Animation.DROP,
-          dropOffPoint: centru,
-          visible: true
-        } as google.maps.MarkerOptions);
-        marker.addListener('click', function () {
-          if (marker.getAnimation() !== null) {
-            marker.setAnimation(null);
-          } else {
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-          }
-        });
-        this.centreHarta.push(marker);
-        this.latSum = this.latSum + centru.latitudine;
-        this.lngSum = this.lngSum + centru.longitudine;
-
         //creaza lista de orase unice
-        if(!orase.includes(centru.oras.toLowerCase())) {
+        if (!orase.includes(centru.oras.toLowerCase())) {
           orase.push(centru.oras.toLowerCase());
         }
 
         //creaza lista de utilitati unice
         let utilitatiCentru = centru.utilitati.split(',');
         utilitatiCentru.forEach(uc => {
-          if(!utilitati.includes(uc.toLowerCase())) {
+          if (!utilitati.includes(uc.toLowerCase())) {
             utilitati.push(uc.toLowerCase());
           }
         });
       });
       //creaza lista pentru dropdown ul de oras in cautare avansata
       orase.forEach(oras => {
-        this.orasePtCautare.push({name: oras.toUpperCase(), code: oras});
+        this.orasePtCautare.push({ name: oras.toUpperCase(), code: oras });
       });
       //creaza lista pentru dropdown ul de utilitati in cautare avansata
       utilitati.forEach(utilitate => {
-        this.utilitatiPtCautare.push({name: utilitate.toUpperCase(), code: utilitate});
-      })
-      console.log(this.latSum);
-      console.log(this.lngSum);
+        this.utilitatiPtCautare.push({ name: utilitate.toUpperCase(), code: utilitate });
+      });
+      this.setMarkerePtHarta(this.centre);
       this.getLocation();
-
     }, error => {
       this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la preluarea centrelor.' })
     })
   }
 
-  zoomIn(map: any) {
-    map.setZoom(map.getZoom() + 1);
-  }
-
-  zoomOut(map: any) {
-    map.setZoom(map.getZoom() - 1);
+  setMarkerePtHarta(listaCentre: Centru[]) {
+    this.centreHarta = [];
+    listaCentre.forEach(centru => {
+      //creaza lista de markere pentru harta
+      var marker = new google.maps.Marker({
+        position: { lat: centru.latitudine, lng: centru.longitudine }, title: centru.nume + "   ",
+        animation: google.maps.Animation.DROP,
+        dropOffPoint: centru,
+        visible: true
+      } as google.maps.MarkerOptions);
+      marker.addListener('click', function () {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      });
+      this.centreHarta.push(marker);
+      this.latSum = this.latSum + centru.latitudine;
+      this.lngSum = this.lngSum + centru.longitudine;
+    });
   }
 
   handleOverlayClick(event: any) {
@@ -150,21 +145,17 @@ export class CautaCentruComponent implements OnInit {
     this.arataDetaliiCentru = true;
   }
 
-  rezerva() {
 
-  }
-
-  rezervaDinTable(centru: Centru) {
-
-  }
 
   cautareDetaliata() {
     this.cautareCentreDetaliata = false;
     this.centreFiltrareDupaCautare = [];
     console.log(this.nrLocuriLiberCautare);
+    //verifica daca oras si nr de locuri libere sunt introduse
     if (this.orasSelectatCautare == null || this.nrLocuriLiberCautare == null) {
       this.messageService.add({ severity: 'warn', summary: '', detail: 'Alegeti orasul si numarul de locuri necesare.' })
       console.log("fara nimic")
+      //verifica daca utilitatile nu sunt selectate si executa cautarea doar cu oras si nr locuri
     } else if (this.utilitatiSelectateCautare.length > 0) {
       console.log("cu utilitati")
 
@@ -180,11 +171,12 @@ export class CautaCentruComponent implements OnInit {
           this.centreFiltrareDupaCautare.push(centru);
         }
       });
-      if(this.centreFiltrareDupaCautare.length == 0) {
+      if (this.centreFiltrareDupaCautare.length == 0) {
         this.faraRezultate = true;
       } else {
         this.cautareCentreDetaliata = true;
       }
+      //executa cautarea cu oras, nr locuri si utilitati
     } else {
       console.log("fara utilitati")
       this.centre.forEach(centru => {
@@ -192,13 +184,27 @@ export class CautaCentruComponent implements OnInit {
           this.centreFiltrareDupaCautare.push(centru);
         }
       });
-
-      if(this.centreFiltrareDupaCautare.length == 0) {
-        this.faraRezultate = true;
+      //verifica daca exista rezultate pentru cautarea executata
+      if (this.centreFiltrareDupaCautare.length == 0) {
+        this.messageService.add({ severity: 'error', summary: 'Oops!', detail: 'Cautare dvs. nu are niciun rezultate. Va rugam incercati alta cautare.' })
       } else {
         this.cautareCentreDetaliata = true;
       }
     }
     console.log(this.centreFiltrareDupaCautare);
+    //seteaza rezultatele cautarii pe harta si centru hartei
+    this.setMarkerePtHarta(this.centreFiltrareDupaCautare);
+    this.harta = {
+      center: { lat: this.latSum / this.centreHarta.length, lng: this.lngSum / this.centreHarta.length },
+      zoom: 12
+    };
+  }
+
+  rezerva() {
+
+  }
+
+  rezervaDinTable(centru: Centru) {
+
   }
 }

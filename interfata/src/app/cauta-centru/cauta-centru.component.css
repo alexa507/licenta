@@ -61,3 +61,29 @@
     text-align: center;
     margin-top: 2em;
 }
+
+#cautareDetaliata {
+    margin-top: 3em;
+    font-weight: bold;
+}
+
+#titluRezultate {
+    width: 100%;
+    text-align: center;
+}
+
+.col-6, .col-10 {
+    margin-top: 1em;
+}
+
+#instructiuniRezultate {
+    text-align: center;
+    font-weight: bold;
+    color: darkgray;
+    margin-top: 1em;
+}
+
+p-inputNumber {
+    width: 90%;
+    margin-left: 5%;
+}
