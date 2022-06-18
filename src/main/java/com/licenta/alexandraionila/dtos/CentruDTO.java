@@ -1,19 +1,31 @@
 package com.licenta.alexandraionila.dtos;
 
-import javax.persistence.Column;
 import java.util.List;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 public class CentruDTO {
 
+    @NotEmpty
     private String nume;
+    @NotEmpty
     private String adresa;
+    @NotEmpty
     private String oras;
+    @NotEmpty
     private String telefon;
+    @NotEmpty
+    @Email
     private String email;
+    @NotEmpty
     private List<String> utilitati;
+    @NotEmpty
     private Integer nrLocuriMax;
+    @NotEmpty
     private Integer nrLocuriLibere;
+    @NotEmpty
     private Float latitudine;
+    @NotEmpty
     private Float longitudine;
 
     public String getNume() {

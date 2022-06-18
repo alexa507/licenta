@@ -14,6 +14,7 @@ export class CentreComponent implements OnInit {
 
 
   listCentre: Centru[] = [];
+  incarcat: boolean = false;
 
   constructor(private service: CentreService, private messageService: MessageService, private router: Router, private confirmationService: ConfirmationService) { }
 
@@ -25,6 +26,7 @@ export class CentreComponent implements OnInit {
   getAllCentre() {
     this.service.getCentre().subscribe(data => {
       this.listCentre = data;
+      this.incarcat = true;
     });
   }
 
@@ -42,8 +44,8 @@ export class CentreComponent implements OnInit {
           this.messageService.add({ severity: 'succes', summary: '', detail: "Eroare la stergerea centrului." });
         });
       },
-      reject: () => {}    
-        });
+      reject: () => { }
+    });
   };
 
   editeazaCentru(centru: Centru) {

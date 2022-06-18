@@ -1,13 +1,12 @@
-<p>prima-pagina works!</p>
+<div id="body">
+    <div id="descriere">
+        <p-card styleClass="p-card-shadow" [style]="{'height': '45em'}">
+            <div>
 
-<a (click)="goToInregistrare()">inregistrare</a>
-<br>
-<a (click)="goToAdmin()">admin-prima-pagina</a>
-<br>
-<a (click)="goToAdminCentre()">admin-centre</a>
-<br>
-<a (click)="goToAdminUserManagement()">admin-user-management</a>
-<br>
-<a (click)="goToLogin()">login</a>
-<br>
-<button pButton type="button" label="cauta centre" (click)="goToCautaCentre()"></button>
+            </div>
+            <div class="col-12" style="text-align: center;">
+                <button pButton type="button" label="Cauta Centre" (click)="goToCautaCentre()"></button>
+            </div>
+        </p-card>
+    </div>
+</div>

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -37,7 +38,7 @@ public class CentreController {
     }
 
     @PostMapping
-    public ResponseEntity<Centru> creazaCentru(@RequestBody CentruDTO centruDTO) {
+    public ResponseEntity<Centru> creazaCentru(@RequestBody @Valid CentruDTO centruDTO) {
         Centru centru = new Centru();
         centru.setAdresa(centruDTO.getAdresa());
         centru.setEmail(centruDTO.getEmail());
@@ -54,7 +55,7 @@ public class CentreController {
     }
 
     @PatchMapping(path = "/{id}")
-    public ResponseEntity<Message> editCentru(@PathVariable Integer id, @RequestBody CentruDTO centruDTO) {
+    public ResponseEntity<Message> editCentru(@PathVariable Integer id, @RequestBody @Valid CentruDTO centruDTO) {
         if(centreService.findById(id).isEmpty()) {
             return  ResponseEntity.badRequest().body(new Message("Centrul nu exista!"));
         }
@@ -73,6 +74,18 @@ public class CentreController {
 
         centreService.save(centruPtEdit);
         return ResponseEntity.ok(new Message("Centrul a fost editat cu succes!"));
+    }
+
+    @PatchMapping(path = "/ocupaLocuri/{id}/{nrLocuriOcupate}")
+    public ResponseEntity<Message> editCentruPentruAOcupaLocuri(@PathVariable Integer id, @PathVariable Integer nrLocuriOcupate) {
+        if(centreService.findById(id).isEmpty()) {
+            return  ResponseEntity.badRequest().body(new Message("Centrul nu exista!"));
+        }
+        Centru centru = centreService.findById(id).get();
+        centru.setNrLocuriLibere(centru.getNrLocuriLibere() - nrLocuriOcupate);
+
+        centreService.save(centru);
+        return ResponseEntity.ok(new Message("Locurile au fost ocupate cu succes in centrul: " + centru.getNume()));
     }
 
     @DeleteMapping(path = "/sterge/{id}")

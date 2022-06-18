@@ -1,4 +1,6 @@
-<div id="body">
+<p-progressSpinner *ngIf="!incarcat" [style]="{width: '20%', 'margin-left':'40%', 'margin-top':'15em' }" strokeWidth="5"
+  animationDuration="4s"></p-progressSpinner>
+<div id="body" *ngIf="incarcat">
     <p-toast></p-toast>
     <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" rejectButtonStyleClass="p-button-text">
 	</p-confirmDialog>

@@ -52,7 +52,7 @@ export class CautaCentruComponent implements OnInit {
       }, error => {
         this.harta = {
           center: { lat: this.latSum / this.centreHarta.length, lng: this.lngSum / this.centreHarta.length },
-          zoom: 12
+          zoom: 7
         };
         this.incarcat = true;
       });
@@ -60,7 +60,7 @@ export class CautaCentruComponent implements OnInit {
       console.log("No support for geolocation");
       this.harta = {
         center: { lat: this.latSum / this.centreHarta.length, lng: this.lngSum / this.centreHarta.length },
-        zoom: 12
+        zoom: 7
       };
       this.incarcat = true;
     }
@@ -97,11 +97,13 @@ export class CautaCentruComponent implements OnInit {
       this.setMarkerePtHarta(this.centre);
       this.getLocation();
     }, error => {
-      this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la preluarea centrelor.' })
+      this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la preluarea centrelor.', sticky: true });
     })
   }
 
   setMarkerePtHarta(listaCentre: Centru[]) {
+    this.latSum = 0;
+    this.lngSum = 0;
     this.centreHarta = [];
     listaCentre.forEach(centru => {
       //creaza lista de markere pentru harta
@@ -147,18 +149,15 @@ export class CautaCentruComponent implements OnInit {
 
 
 
-  cautareDetaliata() {
+  cautareDetaliata(map: any) {
     this.cautareCentreDetaliata = false;
     this.centreFiltrareDupaCautare = [];
     console.log(this.nrLocuriLiberCautare);
     //verifica daca oras si nr de locuri libere sunt introduse
     if (this.orasSelectatCautare == null || this.nrLocuriLiberCautare == null) {
       this.messageService.add({ severity: 'warn', summary: '', detail: 'Alegeti orasul si numarul de locuri necesare.' })
-      console.log("fara nimic")
       //verifica daca utilitatile nu sunt selectate si executa cautarea doar cu oras si nr locuri
     } else if (this.utilitatiSelectateCautare.length > 0) {
-      console.log("cu utilitati")
-
       this.centre.forEach(centru => {
         let utilitati: string[] = centru.utilitati.split(',');
         let utilitatiSelectate: string[] = [];
@@ -178,7 +177,6 @@ export class CautaCentruComponent implements OnInit {
       }
       //executa cautarea cu oras, nr locuri si utilitati
     } else {
-      console.log("fara utilitati")
       this.centre.forEach(centru => {
         if (centru.oras.toLowerCase() == this.orasSelectatCautare.code && centru.nrLocuriLibere > this.nrLocuriLiberCautare) {
           this.centreFiltrareDupaCautare.push(centru);
@@ -195,16 +193,23 @@ export class CautaCentruComponent implements OnInit {
     //seteaza rezultatele cautarii pe harta si centru hartei
     this.setMarkerePtHarta(this.centreFiltrareDupaCautare);
     this.harta = {
-      center: { lat: this.latSum / this.centreHarta.length, lng: this.lngSum / this.centreHarta.length },
-      zoom: 12
+      center: { lat: (this.latSum / this.centreHarta.length), lng: (this.lngSum / this.centreHarta.length) },
+      zoom: 13
     };
+    map.setCenter(this.harta.center);
+    map.setZoom(this.harta.zoom);
   }
 
   rezerva() {
-
+     console.log( this.centruSelectat)
   }
 
   rezervaDinTable(centru: Centru) {
+    console.log(centru);
+  }
 
+  inapoiLaCautare() {
+    this.arataDetaliiCentru = false;
+    this.centruSelectat = undefined;
   }
 }

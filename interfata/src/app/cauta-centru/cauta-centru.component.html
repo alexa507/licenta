@@ -1,6 +1,6 @@
-<p-progressSpinner *ngIf="!incarcat" [style]="{width: '20%', 'margin-left':'40%', 'margin-top':'6em' }" strokeWidth="5"
+<p-progressSpinner *ngIf="!incarcat" [style]="{width: '20%', 'margin-left':'40%', 'margin-top':'15em' }" strokeWidth="5"
   animationDuration="4s"></p-progressSpinner>
-  <p-toast></p-toast>
+<p-toast></p-toast>
 <div *ngIf="incarcat" id="body">
   <div id="harta" class="grid">
     <div class="col-8">
@@ -64,13 +64,18 @@
               <div id="rezervaDinHarta">
                 <button pButton type="button" id="butonRezerva" label="Rezerva" (click)="rezerva()"></button>
               </div>
+              <div id="inapoiLaCautare" style="margin-top: 4em;">
+                <label (click)="inapoiLaCautare()" style="cursor: pointer;"><b>&lt;&lt;-- Inapoi la cautare</b></label>
+              </div>
             </div>
-            <div id="cautareDetaliata"  *ngIf="!arataDetaliiCentru" class="grid">
+            <div id="cautareDetaliata" *ngIf="!arataDetaliiCentru" class="grid">
               <div class="col-6">
                 <label>Oras(*): </label>
               </div>
               <div class="col-10">
-                <p-dropdown [style]="{'width':'90%', 'margin-left':'5%'}" [options]="orasePtCautare" [(ngModel)]="orasSelectatCautare" placeholder="Selectati un oras" optionLabel="name" [showClear]="true"></p-dropdown>
+                <p-dropdown [style]="{'width':'90%', 'margin-left':'5%'}" [options]="orasePtCautare"
+                  [(ngModel)]="orasSelectatCautare" placeholder="Selectati un oras" optionLabel="name"
+                  [showClear]="true"></p-dropdown>
               </div>
               <div class="col-6">
                 <label>Nr locuri necesare(*): </label>
@@ -82,12 +87,14 @@
                 <label>Utilitati: </label>
               </div>
               <div class="col-10">
-                <p-multiSelect [style]="{'width':'90%', 'margin-left':'5%'}" [options]="utilitatiPtCautare" [(ngModel)]="utilitatiSelectateCautare" placeholder="Selectati utilitati" optionLabel="name"></p-multiSelect>
+                <p-multiSelect [style]="{'width':'90%', 'margin-left':'5%'}" [options]="utilitatiPtCautare"
+                  [(ngModel)]="utilitatiSelectateCautare" placeholder="Selectati utilitati" optionLabel="name">
+                </p-multiSelect>
               </div>
               <div class="col-12" id="butonCautareDetaliata">
-                <button pButton type="button" label="Cauta centre" (click)="cautareDetaliata()"></button>
+                <button pButton type="button" label="Cauta centre" (click)="cautareDetaliata(gmap.getMap())"></button>
               </div>
-              <div class="col-12" id="instructiuniRezultate"  *ngIf="cautareCentreDetaliata">
+              <div class="col-12" id="instructiuniRezultate" *ngIf="cautareCentreDetaliata">
                 <label>Rezultatele sunt afisate pe harta si in tabelul de mai jos</label>
               </div>
             </div>
@@ -102,8 +109,9 @@
       <div id="titluRezultate">
         <h3>Rezultatele cautarii</h3>
       </div>
-      <p-table [value]="centreFiltrareDupaCautare" [rows]="5" [showCurrentPageReport]="true" styleClass="p-datatable-customers"
-        [paginator]="true" [globalFilterFields]="['nume','oras', 'nrLocuriLibere', 'utilitati']">
+      <p-table [value]="centreFiltrareDupaCautare" [rows]="5" [showCurrentPageReport]="true"
+        styleClass="p-datatable-customers" [paginator]="true"
+        [globalFilterFields]="['nume','oras', 'nrLocuriLibere', 'utilitati']">
         <ng-template pTemplate="header">
           <tr>
             <th pSortableColumn="nume">Nume <p-sortIcon field="nume"></p-sortIcon>

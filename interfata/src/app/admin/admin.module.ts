@@ -18,6 +18,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { TableModule } from 'primeng/table';
 import { AdaugaEditeazaCentruComponent } from './adauga-editeaza-centru/adauga-editeaza-centru.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 
 
@@ -42,7 +43,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     OAuthModule.forRoot(),
     AccordionModule,
     TableModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ProgressSpinnerModule
   ],
   providers: [JWTInterceptor]
 })
