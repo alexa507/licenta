@@ -83,7 +83,17 @@
     margin-top: 1em;
 }
 
-p-inputNumber {
-    width: 90%;
-    margin-left: 5%;
+#rezervareForm {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 1em;
+}
+
+.col-3, .col-9 {
+    margin-top: 1em;
+}
+
+#rezervareButon {
+    margin-top: 2em;
+    text-align: center;
 }

@@ -22,6 +22,8 @@ import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { DialogModule } from 'primeng/dialog';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
     TableModule,
     DropdownModule,
     MultiSelectModule,
-    InputNumberModule
+    InputNumberModule,
+    DialogModule,
+    InputTextareaModule
   ],
   providers: [JWTInterceptor],
   bootstrap: [AppComponent]

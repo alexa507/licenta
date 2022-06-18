@@ -26,3 +26,5 @@ spring:
 licenta:
   jwtSecret: 'secret'
   jwtExpirationMs: 86400000
+
+qrPath: 'C:\Users\ruben.ionila\Desktop\LICENTA\licenta-alexandra-ionila\src\main\resources\static\'

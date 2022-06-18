@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { of } from 'rxjs';
+import { RezervareDTO } from '../DTOs/rezervare.dto';
 import { Centru } from '../entities/centru';
 import { CentreService } from '../servicii/centre.service';
+import { RezervariService } from '../servicii/rezervari.service';
 
 @Component({
   selector: 'app-cauta-centru',
@@ -31,8 +32,17 @@ export class CautaCentruComponent implements OnInit {
   centreFiltrareDupaCautare: Centru[] = [];
   cautareCentreDetaliata: boolean = false;
   faraRezultate: boolean = false;
+  showDialogRezervare: boolean = false;
+  numeRezervare: any = null;
+  prenumeRezervare: any = null;
+  nrPersoaneRezervare: any = null;
+  mentiuniRezervare: any = null;
+  qrCodeContent: any;
+  showImage: boolean = false;
+  qrSrc: string = '';
 
-  constructor(private serviceCentre: CentreService, private messageService: MessageService) { }
+  constructor(private serviceCentre: CentreService, private messageService: MessageService,
+    private rezervariService: RezervariService) { }
 
   ngOnInit(): void {
     this.getCentre();
@@ -209,14 +219,46 @@ export class CautaCentruComponent implements OnInit {
 
   rezerva() {
     console.log(this.centruSelectat)
+    this.showDialogRezervare = true;
   }
 
   rezervaDinTable(centru: Centru) {
     console.log(centru);
+    this.centruSelectat = centru;
+    this.showDialogRezervare = true;
   }
 
   inapoiLaCautare() {
     this.arataDetaliiCentru = false;
     this.centruSelectat = undefined;
+  }
+
+  creazaRezervare() {
+    if (this.nrPersoaneRezervare == null || this.nrPersoaneRezervare == undefined
+      || this.nrPersoaneRezervare == 0) {
+      this.messageService.add({ severity: 'warn', summary: '', detail: 'Va rog introduceti numarul de persoane pentru rezervare (minim 1).' });
+    } else {
+      let rezervare = {} as RezervareDTO;
+      rezervare.numarPersoane = this.nrPersoaneRezervare;
+      rezervare.mentiuni = this.mentiuniRezervare;
+      rezervare.nume = this.numeRezervare;
+      rezervare.prenume = this.prenumeRezervare;
+      rezervare.idCentru = this.centruSelectat.id;
+  
+      this.rezervariService.salveazaRezervate(rezervare).subscribe(data => {
+        //seteaza src-ul imaginii pt QR
+        this.qrSrc = '../assets/' + data.idRezervare.toString() + '.png';
+        this.showDialogRezervare = false;
+        this.showImage = true;
+        this.messageService.add({ severity: 'succes', summary: '', detail: 'Rezervarea dvs a fost creata cu succes.' });
+        //reinitializeaza variabilele
+        this.nrPersoaneRezervare = null;
+        this.mentiuniRezervare = null;
+        this.prenumeRezervare = null;
+        this.numeRezervare = null;
+      }, error => {
+        this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la crearea rezervarii. Va rugam incercati mai tarziu.' });
+      });
+    }
   }
 }
