@@ -151,6 +151,7 @@ export class CautaCentruComponent implements OnInit {
 
   cautareDetaliata(map: any) {
     this.cautareCentreDetaliata = false;
+    this.faraRezultate = false;
     this.centreFiltrareDupaCautare = [];
     console.log(this.nrLocuriLiberCautare);
     //verifica daca oras si nr de locuri libere sunt introduse
@@ -182,26 +183,32 @@ export class CautaCentruComponent implements OnInit {
           this.centreFiltrareDupaCautare.push(centru);
         }
       });
-      //verifica daca exista rezultate pentru cautarea executata
       if (this.centreFiltrareDupaCautare.length == 0) {
-        this.messageService.add({ severity: 'error', summary: 'Oops!', detail: 'Cautare dvs. nu are niciun rezultate. Va rugam incercati alta cautare.' })
+        this.faraRezultate = true;
       } else {
         this.cautareCentreDetaliata = true;
       }
     }
-    console.log(this.centreFiltrareDupaCautare);
-    //seteaza rezultatele cautarii pe harta si centru hartei
-    this.setMarkerePtHarta(this.centreFiltrareDupaCautare);
-    this.harta = {
-      center: { lat: (this.latSum / this.centreHarta.length), lng: (this.lngSum / this.centreHarta.length) },
-      zoom: 13
-    };
-    map.setCenter(this.harta.center);
-    map.setZoom(this.harta.zoom);
+
+    if (this.faraRezultate) {
+      //verifica daca exista rezultate pentru cautarea executata
+      console.log('niciun centru')
+      this.messageService.add({ severity: 'error', summary: 'Oops!', detail: 'Cautare dvs. nu are niciun rezultate. Va rugam incercati alta cautare.' })
+    } else {
+      this.cautareCentreDetaliata = true;
+      //seteaza rezultatele cautarii pe harta si centru hartei
+      this.setMarkerePtHarta(this.centreFiltrareDupaCautare);
+      this.harta = {
+        center: { lat: (this.latSum / this.centreHarta.length), lng: (this.lngSum / this.centreHarta.length) },
+        zoom: 13
+      };
+      map.setCenter(this.harta.center);
+      map.setZoom(this.harta.zoom);
+    }
   }
 
   rezerva() {
-     console.log( this.centruSelectat)
+    console.log(this.centruSelectat)
   }
 
   rezervaDinTable(centru: Centru) {

@@ -25,41 +25,43 @@
           </div>
           <div id="cardDreapta">
             <div class="grid" id="infoCentru" *ngIf="arataDetaliiCentru">
-              <div class="col-4">
-                <label>Centru: </label>
-              </div>
-              <div class="col-8">
-                <label>{{centruSelectat.nume}}</label>
-              </div>
-              <div class="col-4">
-                <label>Adresa: </label>
-              </div>
-              <div class="col-8">
-                <label>{{centruSelectat.adresa}}</label>
-              </div>
-              <div class="col-4">
-                <label>Nr locuri libere: </label>
-              </div>
-              <div class="col-8">
-                <label>{{centruSelectat.nrLocuriLibere}}</label>
-              </div>
-              <div class="col-4">
-                <label>Telefon: </label>
-              </div>
-              <div class="col-8">
-                <label>{{centruSelectat.telefon}}</label>
-              </div>
-              <div class="col-4">
-                <label>Email: </label>
-              </div>
-              <div class="col-8">
-                <label>{{centruSelectat.email}}</label>
-              </div>
-              <div class="col-4">
-                <label>Utilitati: </label>
-              </div>
-              <div class="col-8">
-                <label>{{centruSelectat.utilitati}}</label>
+              <div style="height: 21em;" class="grid">
+                <div class="col-4">
+                  <label>Centru: </label>
+                </div>
+                <div class="col-8">
+                  <label>{{centruSelectat.nume}}</label>
+                </div>
+                <div class="col-4">
+                  <label>Adresa: </label>
+                </div>
+                <div class="col-8">
+                  <label>{{centruSelectat.adresa}}</label>
+                </div>
+                <div class="col-4">
+                  <label>Nr locuri libere: </label>
+                </div>
+                <div class="col-8">
+                  <label>{{centruSelectat.nrLocuriLibere}}</label>
+                </div>
+                <div class="col-4">
+                  <label>Telefon: </label>
+                </div>
+                <div class="col-8">
+                  <label>{{centruSelectat.telefon}}</label>
+                </div>
+                <div class="col-4">
+                  <label>Email: </label>
+                </div>
+                <div class="col-8">
+                  <label>{{centruSelectat.email}}</label>
+                </div>
+                <div class="col-4">
+                  <label>Utilitati: </label>
+                </div>
+                <div class="col-8">
+                  <label>{{centruSelectat.utilitati}}</label>
+                </div>
               </div>
               <div id="rezervaDinHarta">
                 <button pButton type="button" id="butonRezerva" label="Rezerva" (click)="rezerva()"></button>
