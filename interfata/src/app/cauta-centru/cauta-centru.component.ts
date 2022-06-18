@@ -251,6 +251,14 @@ export class CautaCentruComponent implements OnInit {
         this.showDialogRezervare = false;
         this.showImage = true;
         this.messageService.add({ severity: 'succes', summary: '', detail: 'Rezervarea dvs a fost creata cu succes.' });
+        //updateaza centrul in care s-a facut rezervarea pentru a modifica nr de locuri disponibile
+        this.serviceCentre.rezervaLocuriInCentru(this.centruSelectat.id, this.nrPersoaneRezervare).subscribe(data => {
+          console.log(data);
+          this.arataDetaliiCentru = false;
+          this.getCentre();
+        }, error => {
+          this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la actualizarea nr de locuri libere al centrului.' });
+        });
         //reinitializeaza variabilele
         this.nrPersoaneRezervare = null;
         this.mentiuniRezervare = null;

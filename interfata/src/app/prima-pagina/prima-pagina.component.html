@@ -1,11 +1,56 @@
 <div id="body">
-    <div id="descriere">
-        <p-card styleClass="p-card-shadow" [style]="{'height': '45em'}">
-            <div>
+    <div id="links">
+        <p-card styleClass="p-card-shadow" [style]="{'height': '10em'}">
+            <div class="grid">
+                <div class="col-3">
 
+                </div>
+                <div class="col-6" id="cautaCentre">
+                    <div>
+                        <label>Dacă vă aflați intr-o situație abuzivă puteți apela la unul din centrele destinate pentru victimele abuzului domestic:</label>
+                    </div>
+                    <div id="cauta">
+                        <button pButton type="button" id="cautaCentreButon" label="Cauta Centre" (click)="goToCautaCentre()"></button>
+                    </div>
+                </div>
+                <div class="col-3">
+
+                </div>
             </div>
-            <div class="col-12" style="text-align: center;">
-                <button pButton type="button" label="Cauta Centre" (click)="goToCautaCentre()"></button>
+        </p-card>
+    </div>
+    <div id="descriere">
+        <p-card styleClass="p-card-shadow" [style]="{'height': '30em'}">
+            <div id="legislatia">
+                <div id="titluLegislatie">
+                    <h3>Legislatia actuala cu privire la abuzul domestic:</h3>
+                </div>
+                <p>ART. 3 În sensul prezentei legi, violenţa domestică înseamnă orice inacţiune sau acţiune intenţionată
+                    de violenţă fizică, sexuală, psihologică, economică, socială sau spirituală care se produce în
+                    mediul familial sau domestic ori între soţi sau foşti soţi, precum şi între actuali sau foşti
+                    parteneri, indiferent dacă agresorul locuieşte sau a locuit împreună cu victima." (LEGE Nr. 174/2018
+                    din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie, articolul 3)
+                <p>ART. 7 (1) Autorităţile administraţiei publice centrale şi locale au obligaţia să ia măsurile
+                    necesare pentru prevenirea violenţei domestice, pentru preîntâmpinarea unor situaţii de încălcare
+                    repetată a drepturilor fundamentale ale victimelor violenţei domestice, inclusiv prin furnizarea de
+                    informaţii şi programe de educaţie despre modalităţile în care se pot preveni, evita, recunoaşte şi
+                    raporta cazurile de violenţă. (LEGE Nr. 174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea
+                    violenţei în familie, articolul 7 alineatul (1))
+
+                </p>
+                <p>
+                    ART. 7.g) măsurile ce pot fi dispuse prin ordinul de protecţie provizoriu şi, după caz, prin ordinul
+                    de
+                    protecţie, demersurile necesare pentru emiterea acestora şi procedura de judecată. (LEGE Nr.
+                    174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie, articolul 7
+                    alineatul (2) litera g)
+
+                </p>
+                <p>
+                    Pentru mai multe detalii puteti accesa urmatorul link:
+                    <a href="https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf"
+                        target="_blank">https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf</a>
+                </p>
             </div>
         </p-card>
     </div>

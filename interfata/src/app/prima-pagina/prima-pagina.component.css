@@ -3,3 +3,37 @@
     margin-left: 10%;
     margin-top: 3em;
 }
+
+#legislatia{
+    width: 80%;
+    margin-left: 10%;
+}
+
+#titluLegislatie {
+    text-align: center;
+}
+
+p {
+    font-weight: bold;
+}
+
+#descriere {
+    margin-top: 3em;
+}
+
+#links {
+    margin-top: 8.5em;
+}
+
+#cautaCentre {
+    text-align: center;
+    font-weight: bold;
+}
+
+#cautaCentreButon {
+    width: 10em;
+}
+
+#cauta {
+    margin-top: 1em;
+}

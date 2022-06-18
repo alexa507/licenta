@@ -17,3 +17,12 @@
 #content {
     margin-top: 7em;
 }
+
+label {
+    margin-top: -0.5em; 
+    font-weight: bold;
+}
+mark {
+    font-size: large;
+    font-style: italic;
+}

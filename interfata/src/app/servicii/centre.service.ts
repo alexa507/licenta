@@ -44,4 +44,12 @@ export class CentreService {
     }
     return this.httpClient.patch(this.URL + id, centru , httpOptions);
   }
+
+  rezervaLocuriInCentru(idCentru: number, numarLocuri: number) {
+    const token = this.tokenService.getToken();
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Authorization': 'Bearer ' + token})
+    }
+    return this.httpClient.patch(this.URL + 'ocupaLocuri/' + idCentru + '/' + numarLocuri, httpOptions);
+  }
 }
