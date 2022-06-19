@@ -10,12 +10,14 @@ import { UserGuard } from './auth/user.guard';
 import { CautaCentruComponent } from './cauta-centru/cauta-centru.component';
 import { InregistrareComponent } from './inregistrare/inregistrare.component';
 import { PrimaPaginaComponent } from './prima-pagina/prima-pagina.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   { path: 'prima-pagina', component: PrimaPaginaComponent },
   { path: 'autentificare', component: AutentificareComponent },
   { path: 'inregistrare', component: InregistrareComponent },
   { path: 'centre', component: CautaCentruComponent },
+  { path: 'formular', component: QuizComponent },
   {
     path: 'admin',
     children: [

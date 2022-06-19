@@ -1,0 +1,25 @@
+#body {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 3em;
+}
+
+#titlu {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+}
+
+#iframe {
+    text-align: center;
+}
+
+iframe {
+    height: 600px; 
+    width: 700px;
+    border: none;
+}
+
+b {
+    color: green;
+}
