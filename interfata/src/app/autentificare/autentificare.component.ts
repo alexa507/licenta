@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { StocareTokenService } from '../servicii/stocare-token.service';
 import { UserService } from '../servicii/user.service';
 
 @Component({
   selector: 'app-autentificare',
   templateUrl: './autentificare.component.html',
-  styleUrls: ['./autentificare.component.css']
+  styleUrls: ['./autentificare.component.css'],
+  providers: [MessageService]
 })
 export class AutentificareComponent implements OnInit {
 
@@ -17,7 +19,8 @@ export class AutentificareComponent implements OnInit {
   roles: string[] = [];
   username: string = '';
 
-  constructor(private tokenService: StocareTokenService, private userService: UserService, private router: Router) { }
+  constructor(private tokenService: StocareTokenService, private userService: UserService, private router: Router,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -29,16 +32,16 @@ export class AutentificareComponent implements OnInit {
 
   onSubmit(): void {
     this.userService.autentificare(this.form).subscribe(data => {
-        this.tokenService.saveToken(data.token);
-        this.tokenService.saveUser(data);
+      this.tokenService.saveToken(data.token);
+      this.tokenService.saveUser(data);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenService.getUser().roluri;
-        this.navigareLaAdmin();
-      },
+      this.isLoginFailed = false;
+      this.isLoggedIn = true;
+      this.roles = this.tokenService.getUser().roluri;
+      this.navigareLaAdmin();
+    },
       err => {
-        this.errorMessage = err.error.message;
+        this.messageService.add({severity: 'error', summary: 'Autentificare esuata', detail: 'Va rugam verificati username-ul si parola introduse.'})
         this.isLoginFailed = true;
       }
     );
@@ -46,5 +49,9 @@ export class AutentificareComponent implements OnInit {
 
   navigareLaAdmin() {
     this.router.navigate(['/admin/prima-pagina']);
+  }
+
+  goToInregistrare() {
+    this.router.navigate(['/inregistrare']);
   }
 }

@@ -5,6 +5,7 @@ import com.licenta.alexandraionila.config.user.UserDetailsImpl;
 import com.licenta.alexandraionila.dtos.AutentificareDTO;
 import com.licenta.alexandraionila.dtos.InregistrareDTO;
 import com.licenta.alexandraionila.dtos.JwtDTO;
+import com.licenta.alexandraionila.dtos.Message;
 import com.licenta.alexandraionila.entities.EnumerareRoluri;
 import com.licenta.alexandraionila.entities.Rol;
 import com.licenta.alexandraionila.entities.User;
@@ -73,17 +74,17 @@ public class AutentificareController {
     }
 
     @PostMapping(path = "/inregistrare")
-    public ResponseEntity<String> registerUser(@RequestBody InregistrareDTO inregistrareDTO) {
+    public ResponseEntity<Message> registerUser(@RequestBody InregistrareDTO inregistrareDTO) {
         if (userService.existsByUsername(inregistrareDTO.getUsername())) {
             return ResponseEntity
                 .badRequest()
-                .body("Eroare: Username-ul este deja folosit!");
+                .body(new Message("Eroare: Username-ul este deja folosit!"));
         }
 
         if (userService.existsByEmail(inregistrareDTO.getEmail())) {
             return ResponseEntity
                 .badRequest()
-                .body("Eroare: Email-ul este deja folosit!");
+                .body(new Message("Eroare: Email-ul este deja folosit!"));
         }
 
         // creare user si salvare in DB
@@ -120,6 +121,6 @@ public class AutentificareController {
         user.setRoluri(roluri);
         userService.save(user);
 
-        return ResponseEntity.ok("User-ul a fost inregistrat cu succes!");
+        return ResponseEntity.ok(new Message("User-ul a fost inregistrat cu succes!"));
     }
 }

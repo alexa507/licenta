@@ -24,6 +24,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     PrimaPaginaComponent,
     AutentificareComponent,
     InregistrareComponent,
-    CautaCentruComponent
+    CautaCentruComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,31 @@
-<div class="col-md-6">
-    <div class="card card-container" style="text-align: center;">
-
-        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
-        <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText name="username" [(ngModel)]="form.username" required placeholder="Username"> 
-                </span>
-            </div>
-            <div class="form-group">
-                <span class="p-float-label">
-                    <input id="float-input" type="password" pInputText name="parola" [(ngModel)]="form.parola" required minlength="6" placeholder="Parola"> 
-                </span>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary btn-block">
-                    Login
-                </button>
-            </div>
-            <div class="form-group">
-                <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
-                    Login failed: {{ errorMessage }}
+<div id="body">
+    <p-toast></p-toast>
+    <p-card styleClass="p-card-shadow">
+        <div style="text-align: center;">
+            <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+            <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" pInputText name="username" [(ngModel)]="form.username"
+                            required placeholder="Username">
+                    </span>
                 </div>
+                <div class="form-group">
+                    <span class="p-float-label">
+                        <input id="float-input" type="password" pInputText name="parola" [(ngModel)]="form.parola"
+                            required placeholder="Parola">
+                    </span>
+                </div>
+                <div class="form-group">
+                    <button pButton type="button" label="Autentificare" (click)="onSubmit()"></button>
+                </div>
+            </form>
+            <div id="inregistreaza" *ngIf="!isLoggedIn">
+                <label>Nu ai cont? Înregistrează-te <b><a (click)="goToInregistrare()">aici.</a></b></label>
             </div>
-        </form>
-
-        <div style="text-align: center;" class="alert alert-success" *ngIf="isLoggedIn">
-            Logged in as {{username}}.
+            <div id="loggedIn" class="alert alert-success" *ngIf="isLoggedIn">
+                Logged in as <b>{{username}}</b>.
+            </div>
         </div>
-    </div>
+    </p-card>
 </div>
