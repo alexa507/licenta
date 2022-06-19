@@ -19,6 +19,7 @@ import { TableModule } from 'primeng/table';
 import { AdaugaEditeazaCentruComponent } from './adauga-editeaza-centru/adauga-editeaza-centru.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -46,6 +47,9 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ConfirmDialogModule,
     ProgressSpinnerModule
   ],
-  providers: [JWTInterceptor]
+  providers: [
+    JWTInterceptor,
+    DatePipe
+  ]
 })
 export class AdminModule { }
