@@ -25,6 +25,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { QuizComponent } from './quiz/quiz.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { QuizComponent } from './quiz/quiz.component';
     AutentificareComponent,
     InregistrareComponent,
     CautaCentruComponent,
-    QuizComponent
+    QuizComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

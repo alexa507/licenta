@@ -1,0 +1,42 @@
+<div id="body">
+    <p-toast></p-toast>
+    <p-card styleClass="p-card-shadow" [style]="{'height': '45em', 'width': '60%', 'margin-left': '20%'}">
+        <div id="titlu">
+            <h3>Contact</h3>
+            <h4>Pentru orice sugestie, observație sau mesaj vă rugăm sa completați formularul de mai jos</h4>
+        </div>
+        <div id="formular" class="grid">
+            <div class="col-3">
+                <label>Nume (optional):</label>
+            </div>
+            <div class="col-9">
+                <input pInputText type="text" [(ngModel)]="nume" placeholder="Nume">
+            </div>
+
+            <div class="col-3">
+                <label>Prenume (optional):</label>
+            </div>
+            <div class="col-9">
+                <input pInputText type="text" [(ngModel)]="prenume" placeholder="Prenume">
+            </div>
+
+            <div class="col-3">
+                <label>Email:</label>
+            </div>
+            <div class="col-9">
+                <input pInputText type="email" [(ngModel)]="email" placeholder="Email">
+            </div>
+
+            <div class="col-3">
+                <label>Mesaj:</label>
+            </div>
+            <div class="col-9">
+                <textarea pInputTextarea [(ngModel)]="mesaj" placeholder="Mesajul dumneavoastra"></textarea>
+            </div>
+
+            <div class="col-12">
+                <button pButton type="button" label="Trimite" (click)="trimite()"></button>
+            </div>
+        </div>
+    </p-card>
+</div>
