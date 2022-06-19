@@ -37,4 +37,8 @@ export class PrimaPaginaComponent implements OnInit {
   goToCautaCentre() {
     this.router.navigate(['/centre']);
   }
+
+  goToQuiz() {
+    this.router.navigate(['/formular']);
+  }
 }

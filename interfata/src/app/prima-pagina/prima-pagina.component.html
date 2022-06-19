@@ -103,7 +103,7 @@
                         </p>
                     </div>
                     <div id="quiz">
-                        <button pButton type="button" id="raspundeLaQuiz" label="QUIZ"  style = "font-family:Bahnschrift SemiBold;font-size:30px"></button>
+                        <button pButton type="button" id="raspundeLaQuiz" (click)="goToQuiz()" label="Formular"  style = "font-family:Bahnschrift SemiBold;font-size:30px"></button>
                         
                     </div>
                     
@@ -115,38 +115,42 @@
 
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <head>
         <style>
         table {
+          background-color: #537dee;
           font-family: arial, sans-serif;
           border-collapse: collapse;
           width: 100%;
         }
         
         td, th {
-          border: 1px solid #dddddd;
+          border: 2px solid #000000;
           text-align: left;
           padding: 8px;
         }
         
         tr:nth-child(even) {
-          background-color: #dddddd;
+          background-color: #ffffff;
         }
         </style>
         </head>
         <body>
         
-        <h2>Tipurile de violenta</h2>
         
         <table>
           <tr>
-            <th>Fizică</th>
-            <th>Psihologică</th>
-            <th>Sexuală</th>
-            <th>Economică</th>
-            <th>Socială</th>
-            <th>Spirituală</th>
+            <th>Violență fizică</th>
+            <th>Violență psihologică</th>
+            <th>Violență sexuală</th>
+            <th>Violență economică</th>
+            <th>Violență socială</th>
+            <th>Violență spirituală</th>
           </tr>
           <tr>
             <td>vătămarea corporală ori a sănătății 
@@ -188,29 +192,33 @@
     <br>
 
     <div id="descriere">
-        <p-card styleClass="p-card-shadow" [style]="{'height': '30em'}">
-            <div id="legislatia">
+        <p-card styleClass="p-card-shadow" [style]="{'width': '84em', 'height': '37em', 'background-color': 'rgb(80, 120, 206)', 'color': 'white'}">
+            <div id="legislatia" class="center" [style]="{'width': '65em'}">
                 <div id="titluLegislatie">
-                    <h3>Legislatia actuală cu privire la abuzul domestic:</h3>
+                    <h3 style = "font-family:'Calibri Light';font-size:33px">Legislatia actuală cu privire la abuzul domestic:</h3>
                 </div>
-                <p>ART. 7 (1) Autorităţile administraţiei publice centrale şi locale au obligaţia să ia măsurile
+                <p style = "font-family:'Calibri Light';font-size:30px">
+                    ART. 7 (1) Autorităţile administraţiei publice centrale şi locale au obligaţia să ia măsurile
                     necesare pentru prevenirea violenţei domestice, pentru preîntâmpinarea unor situaţii de încălcare
                     repetată a drepturilor fundamentale ale victimelor violenţei domestice, inclusiv prin furnizarea de
                     informaţii şi programe de educaţie despre modalităţile în care se pot preveni, evita, recunoaşte şi
-                    raporta cazurile de violenţă. (LEGE Nr. 174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea
+                    raporta cazurile de violenţă. 
+                    <br>
+                    (LEGEA Nr. 174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea
                     violenţei în familie, articolul 7 alineatul (1))
 
                 </p>
-                <p>
-                    ART. 7.g) măsurile ce pot fi dispuse prin ordinul de protecţie provizoriu şi, după caz, prin ordinul
+                <p style = "font-family:'Calibri Light';font-size:30px">
+                    ART. 7. g) măsurile ce pot fi dispuse prin ordinul de protecţie provizoriu şi, după caz, prin ordinul
                     de
-                    protecţie, demersurile necesare pentru emiterea acestora şi procedura de judecată. (LEGE Nr.
+                    protecţie, demersurile necesare pentru emiterea acestora şi procedura de judecată. <br> (LEGEA Nr.
                     174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie, articolul 7
                     alineatul (2) litera g)
 
                 </p>
-                <p>
+                <p style = "font-family:'Calibri Light';font-size:30px">
                     Pentru mai multe detalii puteti accesa urmatorul link:
+                    <br>
                     <a href="https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf"
                         target="_blank">https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf</a>
                 </p>
@@ -218,3 +226,34 @@
         </p-card>
     </div>
 </div>
+
+
+<br>
+<br>
+
+
+<div id="ptcontact">
+    <p-card class="center" [style]="{'width': '65em', 'height': '17em', 'background-color': 'rgb(28, 41, 71)', 'color': 'white'}">
+        <div class="grid">
+            
+            <div  id="mcontact" class="center" [style]="{'width': '60em'}">
+                <div>
+                    <p style = "font-family:Bahnschrift SemiBold;font-size:30px">
+                    În cazul în care aveți sugestii despre cum am putea îmbunătății platforma <br> 
+                    sau dacă ați întâlnit diverse probleme, apăsați butonul de mai jos pentru   <br>
+                   a ne contacta 
+                    </p>
+                </div>
+                <div id="contact">
+                    <button pButton type="button" id="apasaContact" (click)="goToQuiz()" label="Contact"  style = "font-family:Bahnschrift SemiBold;font-size:30px"></button>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    </p-card>
+</div>
+
+<br>
+<br>

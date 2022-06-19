@@ -62,6 +62,21 @@ p {
     width: 10em;
 }
 
+#ptcontact {
+    margin-top: 7em;
+    width: 77%;
+    margin-left: 1%;
+}
+
+#mcontact {
+    text-align: center;
+    font-weight: bold;
+}
+
+#apasaContact{
+    width: 10em;
+}
+
 .center {
     display: block;
     margin-left: auto;
