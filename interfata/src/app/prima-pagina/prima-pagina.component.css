@@ -22,8 +22,17 @@ p {
 }
 
 #links {
-    margin-top: 8.5em;
+    margin-top: 7em;
+    width: 115%;
+    margin-left: -14.5%;
 }
+
+#definitie {
+    margin-top: 7em;
+    width: 85%;
+    margin-left: 8%;
+}
+
 
 #cautaCentre {
     text-align: center;
@@ -37,3 +46,26 @@ p {
 #cauta {
     margin-top: 1em;
 }
+
+#ptquiz {
+    margin-top: 7em;
+    width: 77%;
+    margin-left: 1%;
+}
+
+#raspquiz {
+    text-align: center;
+    font-weight: bold;
+}
+
+#raspundeLaQuiz{
+    width: 10em;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+

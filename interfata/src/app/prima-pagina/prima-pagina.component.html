@@ -1,35 +1,198 @@
 <div id="body">
-    <div id="links">
-        <p-card styleClass="p-card-shadow" [style]="{'height': '10em'}">
+
+
+
+   <style>
+        .container {
+          position: center;
+          font-family: 'Bahnschrift SemiBold';
+        }
+        
+        .text-block {
+          position: absolute;
+          bottom: 90px;
+          right: 340px;
+          background-color: rgb(39, 65, 121);
+          color: white;
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+        </style>
+
+    <div class ="container">
+        <img src="../assets/1.png" class="center" [style]="{'width': '1100px', 'height': '700px'}">
+        <div class="text-block">
+            <br>
+                <p style = "font-family:Open Sans;font-size:35px;">
+                <font size="+12">
+                    
+                    VIOLENȚA DOMESTICĂ</font>
+                </p>
+           
+            
+                <p style = "font-family:Bahnschrift SemiBold;font-size:28px;font-style:italic;">
+                Oricine poate să fie o victimă a violenței domestice indiferent
+                <br>
+                 de se​​x, vârstă, religie sau clasă socială 
+                </p>
+            <br>
+        </div>
+    </div>
+
+   
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+ 
+        <div id="links">
+            <p-card class="center" [style]="{'width': '60em', 'height': '15em', 'background-color': 'rgb(28, 41, 71)', 'color': 'white'}">
+                <div class="grid">
+                    
+                    <div  id="cautaCentre" class="center" [style]="{'width': '50em'}">
+                        <div>
+                            <p style = "font-family:Bahnschrift SemiBold;font-size:30px">
+                            Dacă vă aflați într-o situație abuzivă puteți apela la unul <br>din centrele destinate pentru victimele abuzului domestic:
+                            </p>
+                        </div>
+                        <div id="cauta">
+                            <button pButton type="button" id="cautaCentreButon" label="Cauta Centre" (click)="goToCautaCentre()" style = "font-family:Bahnschrift SemiBold;font-size:30px"></button>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </p-card>
+        </div>
+    
+
+        <br>
+        <br>
+    
+
+        <div id="definitie">
+            <p-card styleClass="p-card-shadow" [style]="{'width': '70em', 'height': '18em', 'background-color': 'rgb(39, 65, 121)', 'color': 'white'}">
+                <div id="abuzdef" class="center" [style]="{'width': '65em'}">
+                    <p style = "font-family:'Calibri Light';font-size:33px">
+                        ART3. Violenţa domestică înseamnă orice inacţiune sau acţiune intenţionată
+                        de violenţă fizică, sexuală, psihologică, economică, socială sau spirituală care se produce în
+                        mediul familial sau<br> domestic ori  între soţi sau foşti soţi, precum şi între actuali sau foşti
+                        parteneri, indiferent dacă agresorul locuieşte sau a locuit împreună cu victima. <br> (LEGEA Nr. 174/2018
+                        din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie)
+                    </p>
+                    
+                </div>
+            </p-card>
+        </div>
+
+    <br>
+    <br>
+
+    <div id="ptquiz">
+        <p-card class="center" [style]="{'width': '50em', 'height': '15em', 'background-color': 'rgb(28, 41, 71)', 'color': 'white'}">
             <div class="grid">
-                <div class="col-3">
-
-                </div>
-                <div class="col-6" id="cautaCentre">
+                
+                <div  id="raspquiz" class="center" [style]="{'width': '36em'}">
                     <div>
-                        <label>Dacă vă aflați intr-o situație abuzivă puteți apela la unul din centrele destinate pentru victimele abuzului domestic:</label>
+                        <p style = "font-family:Bahnschrift SemiBold;font-size:30px">
+                        Pentru a determina dacă sunteți o victimă a violenței<br>   domestice puteți răspunde la următorul chestionar
+                       
+                        </p>
                     </div>
-                    <div id="cauta">
-                        <button pButton type="button" id="cautaCentreButon" label="Cauta Centre" (click)="goToCautaCentre()"></button>
+                    <div id="quiz">
+                        <button pButton type="button" id="raspundeLaQuiz" label="QUIZ"  style = "font-family:Bahnschrift SemiBold;font-size:30px"></button>
+                        
                     </div>
+                    
                 </div>
-                <div class="col-3">
-
-                </div>
+                
             </div>
         </p-card>
     </div>
+
+    <br>
+    <br>
+
+    <head>
+        <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+        </head>
+        <body>
+        
+        <h2>Tipurile de violenta</h2>
+        
+        <table>
+          <tr>
+            <th>Fizică</th>
+            <th>Psihologică</th>
+            <th>Sexuală</th>
+            <th>Economică</th>
+            <th>Socială</th>
+            <th>Spirituală</th>
+          </tr>
+          <tr>
+            <td>vătămarea corporală ori a sănătății 
+                prin lovire, îmbrâncire, trântire, 
+                tăiere etc. în orice formă și de 
+                orice intensitate</td>
+                
+            <td>impunerea voinței sau a controlului 
+                personal, provocarea de stări de 
+                tensiune și de suferință psihică 
+                în orice mod și prin orice mijloace</td>
+                
+            <td>agresiune sexuală, impunere de acte 
+                degradante, hărțuire, intimidare, 
+                brutalitate în vederea întreținerii 
+                unor relații sexuale forțate, viol 
+                conjugal</td>
+                
+            <td>interzicerea activității profesionale, 
+                privare de mijloace economice, 
+                interzicerea dreptului de a poseda, 
+                folosi și dispune de bunurile comune</td>
+                
+            <td>impunerea izolării persoanei de familie, 
+                de comunitate și de prieteni, interzicerea 
+                frecventării instituției de învățământ, 
+                impunerea izolării prin detenție</td>
+                
+            <td>subestimarea sau diminuarea importanței 
+                satisfacerii necesităților moral-spirituale 
+                prin interzicere, limitare, ridiculizare</td>
+          </tr>
+          
+        </table>
+        
+        </body>
+
+    <br>
+    <br>
+
     <div id="descriere">
         <p-card styleClass="p-card-shadow" [style]="{'height': '30em'}">
             <div id="legislatia">
                 <div id="titluLegislatie">
-                    <h3>Legislatia actuala cu privire la abuzul domestic:</h3>
+                    <h3>Legislatia actuală cu privire la abuzul domestic:</h3>
                 </div>
-                <p>ART. 3 În sensul prezentei legi, violenţa domestică înseamnă orice inacţiune sau acţiune intenţionată
-                    de violenţă fizică, sexuală, psihologică, economică, socială sau spirituală care se produce în
-                    mediul familial sau domestic ori între soţi sau foşti soţi, precum şi între actuali sau foşti
-                    parteneri, indiferent dacă agresorul locuieşte sau a locuit împreună cu victima." (LEGE Nr. 174/2018
-                    din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie, articolul 3)
                 <p>ART. 7 (1) Autorităţile administraţiei publice centrale şi locale au obligaţia să ia măsurile
                     necesare pentru prevenirea violenţei domestice, pentru preîntâmpinarea unor situaţii de încălcare
                     repetată a drepturilor fundamentale ale victimelor violenţei domestice, inclusiv prin furnizarea de
