@@ -41,6 +41,7 @@ export class CautaCentruComponent implements OnInit {
   showImage: boolean = false;
   qrSrc: string = '';
   emailRezervare: any = null;
+  rezervareCreata: boolean = false;
 
   constructor(private serviceCentre: CentreService, private messageService: MessageService,
     private rezervariService: RezervariService) { }
@@ -235,6 +236,7 @@ export class CautaCentruComponent implements OnInit {
   }
 
   creazaRezervare() {
+    this.rezervareCreata = false;
     if (this.nrPersoaneRezervare == null || this.nrPersoaneRezervare == undefined
       || this.nrPersoaneRezervare == 0 || this.emailRezervare == null) {
       this.messageService.add({ severity: 'warn', summary: '', detail: 'Va rog introduceti numarul de persoane pentru rezervare (minim 1) si email-ul.' });
@@ -245,19 +247,22 @@ export class CautaCentruComponent implements OnInit {
       rezervare.nume = this.numeRezervare;
       rezervare.prenume = this.prenumeRezervare;
       rezervare.idCentru = this.centruSelectat.id;
-      rezervare.email = this.emailRezervare
-  
+      rezervare.email = this.emailRezervare;
+      this.showDialogRezervare = false;
+      this.showImage = true;
+      
       this.rezervariService.salveazaRezervate(rezervare).subscribe(data => {
         //seteaza src-ul imaginii pt QR
         this.qrSrc = '../assets/' + data.idRezervare.toString() + '.png';
         this.showDialogRezervare = false;
-        this.showImage = true;
+        
         this.messageService.add({ severity: 'succes', summary: '', detail: 'Rezervarea dvs a fost creata cu succes.' });
         //updateaza centrul in care s-a facut rezervarea pentru a modifica nr de locuri disponibile
         this.serviceCentre.rezervaLocuriInCentru(this.centruSelectat.id, this.nrPersoaneRezervare).subscribe(data => {
           console.log(data);
           this.arataDetaliiCentru = false;
           this.getCentre();
+          this.rezervareCreata = true;
         }, error => {
           this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la actualizarea nr de locuri libere al centrului.' });
         });

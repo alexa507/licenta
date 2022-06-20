@@ -220,7 +220,7 @@
     </p-card>
   </div>
   <p-dialog header="Creaza o rezervare" [(visible)]="showDialogRezervare" [style]="{'width':'60%'}">
-    <div class="grid" id="rezervareForm"  *ngIf="!showImage">
+    <div class="grid" id="rezervareForm" *ngIf="!showImage">
       <div class="col-3">
         <label>Nume (optional):</label>
       </div>
@@ -263,8 +263,13 @@
     </div>
   </p-dialog>
   <p-dialog header="Codul rezervarii dvs" [(visible)]="showImage">
-    <div class="col-12" style="text-align: center;">
-      <img [src]="qrSrc"/>
+    <div class="col-12" style="text-align: center;" *ngIf="rezervareCreata">
+      <img [src]="qrSrc" />
+    </div>
+    <div class="col-12" style="text-align: center;" *ngIf="!rezervareCreata">
+      <label>Rezervarea este in curs de a fi creata, va rugam asteptati.</label>
+      <p-progressSpinner *ngIf="!rezervareCreata" [style]="{width: '30%', 'margin-top':'2em' }"
+        strokeWidth="5" animationDuration="4s"></p-progressSpinner>
     </div>
   </p-dialog>
 </div>
