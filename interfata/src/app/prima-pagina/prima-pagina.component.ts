@@ -41,4 +41,8 @@ export class PrimaPaginaComponent implements OnInit {
   goToQuiz() {
     this.router.navigate(['/formular']);
   }
+
+  goToContact() {
+    this.router.navigate(['/contact']);
+  }
 }
