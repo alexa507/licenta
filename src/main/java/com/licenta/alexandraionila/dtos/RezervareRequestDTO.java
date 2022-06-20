@@ -1,13 +1,12 @@
 package com.licenta.alexandraionila.dtos;
 
-import java.util.UUID;
-
-public class RezervateRequestDTO {
+public class RezervareRequestDTO {
     String nume;
     String prenume;
     Integer numarPersoane;
     String mentiuni;
     Integer idCentru;
+    String email;
 
     public String getNume() {
         return nume;
@@ -47,5 +46,13 @@ public class RezervateRequestDTO {
 
     public void setIdCentru(Integer idCentru) {
         this.idCentru = idCentru;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

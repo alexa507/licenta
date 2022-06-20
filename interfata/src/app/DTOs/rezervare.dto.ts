@@ -4,4 +4,5 @@ export interface RezervareDTO {
     numarPersoane: number;
     mentiuni: string;
     idCentru: number;
+    email: string;
 }

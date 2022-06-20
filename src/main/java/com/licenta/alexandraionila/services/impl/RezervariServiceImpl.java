@@ -45,6 +45,6 @@ public class RezervariServiceImpl implements RezervariService {
     @Override
     public String getRezervareQRFile(Rezervare rezervare, Centru centru)
         throws IOException, WriterException {
-        return qrService.generateQRCodeImage(rezervare, centru);
+        return qrService.generateQRCodeImageAndSendEmail(rezervare, centru);
     }
 }

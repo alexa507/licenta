@@ -40,6 +40,7 @@ export class CautaCentruComponent implements OnInit {
   qrCodeContent: any;
   showImage: boolean = false;
   qrSrc: string = '';
+  emailRezervare: any = null;
 
   constructor(private serviceCentre: CentreService, private messageService: MessageService,
     private rezervariService: RezervariService) { }
@@ -235,8 +236,8 @@ export class CautaCentruComponent implements OnInit {
 
   creazaRezervare() {
     if (this.nrPersoaneRezervare == null || this.nrPersoaneRezervare == undefined
-      || this.nrPersoaneRezervare == 0) {
-      this.messageService.add({ severity: 'warn', summary: '', detail: 'Va rog introduceti numarul de persoane pentru rezervare (minim 1).' });
+      || this.nrPersoaneRezervare == 0 || this.emailRezervare == null) {
+      this.messageService.add({ severity: 'warn', summary: '', detail: 'Va rog introduceti numarul de persoane pentru rezervare (minim 1) si email-ul.' });
     } else {
       let rezervare = {} as RezervareDTO;
       rezervare.numarPersoane = this.nrPersoaneRezervare;
@@ -244,6 +245,7 @@ export class CautaCentruComponent implements OnInit {
       rezervare.nume = this.numeRezervare;
       rezervare.prenume = this.prenumeRezervare;
       rezervare.idCentru = this.centruSelectat.id;
+      rezervare.email = this.emailRezervare
   
       this.rezervariService.salveazaRezervate(rezervare).subscribe(data => {
         //seteaza src-ul imaginii pt QR
@@ -264,6 +266,7 @@ export class CautaCentruComponent implements OnInit {
         this.mentiuniRezervare = null;
         this.prenumeRezervare = null;
         this.numeRezervare = null;
+        this.emailRezervare = null;
       }, error => {
         this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Eroare la crearea rezervarii. Va rugam incercati mai tarziu.' });
       });

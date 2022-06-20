@@ -41,6 +41,9 @@ public class Rezervare {
     @Column(name = "data_creare")
     private Date dataCreare;
 
+    @Column(name = "email")
+    private String email;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(name = "rezervare_centru",
         joinColumns = @JoinColumn(name = "id_rezervare", referencedColumnName = "id"),
@@ -101,5 +104,13 @@ public class Rezervare {
 
     public void setCentru(Centru centru) {
         this.centru = centru;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

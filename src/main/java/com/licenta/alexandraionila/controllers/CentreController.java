@@ -55,7 +55,7 @@ public class CentreController {
     }
 
     @PatchMapping(path = "/{id}")
-    public ResponseEntity<Message> editCentru(@PathVariable Integer id, @RequestBody @Valid CentruDTO centruDTO) {
+    public ResponseEntity<Message> editCentru(@PathVariable Integer id, @RequestBody CentruDTO centruDTO) {
         if(centreService.findById(id).isEmpty()) {
             return  ResponseEntity.badRequest().body(new Message("Centrul nu exista!"));
         }

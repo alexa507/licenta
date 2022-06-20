@@ -2,7 +2,7 @@ package com.licenta.alexandraionila.controllers;
 
 import com.google.zxing.WriterException;
 import com.licenta.alexandraionila.dtos.RezervareResponseDTO;
-import com.licenta.alexandraionila.dtos.RezervateRequestDTO;
+import com.licenta.alexandraionila.dtos.RezervareRequestDTO;
 import com.licenta.alexandraionila.entities.Rezervare;
 import com.licenta.alexandraionila.exceptions.CentruNotFoundException;
 import com.licenta.alexandraionila.services.CentreService;
@@ -26,7 +26,8 @@ public class RezervariController {
     RezervariService rezervariService;
 
     @PostMapping()
-    public ResponseEntity<RezervareResponseDTO> creazaRezervare(@RequestBody RezervateRequestDTO request)
+    public ResponseEntity<RezervareResponseDTO> creazaRezervare(@RequestBody
+        RezervareRequestDTO request)
         throws IOException, WriterException {
         Rezervare rezervare = new Rezervare();
         rezervare.setDataCreare(new Date());
@@ -34,6 +35,7 @@ public class RezervariController {
         rezervare.setPrenume(request.getPrenume());
         rezervare.setMentiuni(request.getMentiuni());
         rezervare.setNrPersoane(request.getNumarPersoane());
+        rezervare.setEmail(request.getEmail());
         if(centreService.findById(request.getIdCentru()).isEmpty()) {
             throw new CentruNotFoundException("Centrul nu a fost gasit");
         }

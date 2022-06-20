@@ -27,4 +27,14 @@ licenta:
   jwtSecret: 'secret'
   jwtExpirationMs: 86400000
 
-qrPath: 'C:\Users\ruben.ionila\Desktop\LICENTA\licenta-alexandra-ionila\src\main\resources\static\'
+email:
+  host: smtp.gmail.com
+  port: 587
+  username: licenta.alexandra.ionila@gmail.com
+  password: gbdifavwvolrawli
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
