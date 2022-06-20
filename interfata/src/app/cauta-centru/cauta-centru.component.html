@@ -219,7 +219,7 @@
       </p-table>
     </p-card>
   </div>
-  <p-dialog header="Creaza o rezervare" [(visible)]="showDialogRezervare">
+  <p-dialog header="Creaza o rezervare" [(visible)]="showDialogRezervare" [style]="{'width':'60%'}">
     <div class="grid" id="rezervareForm"  *ngIf="!showImage">
       <div class="col-3">
         <label>Nume (optional):</label>
