@@ -1,15 +1,168 @@
 <div id="body">
     <div id="quiz">
-        <p-card styleClass="p-card-shadow" [style]="{'height': '47em'}">
+        <p-card styleClass="p-card-shadow">
             <div id="titlu">
-                <h3>Vă rugăm să completați formularul de mai jos pentru a obține o evaluare a situației dumneavoastră
-                </h3>
-                <h4>La final apăsați butonul <b><i>Submit</i></b> dacă doriți sa ajutați la acest studiu privind
-                    violența domestică (toate răspunsurile sunt anonime).</h4>
+                <h3>Esti o victimă a violenței domestice?</h3>
+                <h4>Violența domestică reprezintă orice tip de acțiune intenționată de violență fizică, sexuală,
+                    psihologică, economică, socială sau spirituală care este realizată de un actual sau fost partener.
+                    Victimele pot fi persoane de orice vârstă, sex, statut social, religie, etc.
+                    Pentru a fi mai ușor de înțeles vom explica pe rând fiecare tip de violență și vom da exemple care
+                    aparțin acelei categorii.</h4>
             </div>
-            <div id="iframe">
-                <iframe
-                    src="https://docs.google.com/forms/d/e/1FAIpQLScqYD9LXbCg85FLfCX-YFdCozd9KxcpbByplFhEiCN_kRuCSQ/viewform?embedded=true"></iframe>
+            <div class="grid col-12">
+                <div class="col-8" style="margin: auto; margin-top: 2em">
+                    <p-card styleClass="p-card-shadow" [style]="{'background-color': 'lightsteelblue'}">
+                        <div id="titlu">
+                            <label style="font-size: larger; font-weight: bold;">Abuzul fizic</label>
+                        </div>
+                        <div style="font-weight: bold;">
+                            <p>Este o formă des întâlnită de abuz. Poate porni de la lucruri mai mici, cum ar fi dacă
+                                ați fost trasă de păr, dar în general, cu timpul, abuzatorul devine din ce in ce mai
+                                violent. Fie ca agresorul produce răni vizibile sau nu, este tot abuz fizic și nu
+                                trebuie subestimat.</p>
+                            <p>Mai jos, vom avea câteva exemple de abuz fizic, dar nu ne limităm doar la ele, ci sunt
+                                doar un punct de pornire.</p>
+                            <ul>
+                                <li>Aruncă lucruri spre tine</li>
+                                <li>Te trage de păr</li>
+                                <li>Te strânge de gât</li>
+                                <li>Te împinge</li>
+                                <li>Te lovește</li>
+                                <li>Te înjunghie</li>
+                                <li>Te bate cu obiecte străine</li>
+                                <li>Te scuipă</li>
+                                <li>Te rănește și nu te lasă să mergi la doctor/spital</li>
+                            </ul>
+                        </div>
+                    </p-card>
+                </div>
+                <div class="col-6" style="margin-top: 2em;">
+                    <p-card styleClass="p-card-shadow"
+                        [style]="{'height': '20em','background-color': 'lightsteelblue', 'width': '90%', 'margin': 'auto'}">
+                        <div id="titlu">
+                            <label style="font-size: larger; font-weight: bold;">Abuzul sexual</label>
+                        </div>
+                        <div style="font-weight: bold;">
+                            <p>În general are loc în relațiile care deja au un dezechilibru al puterii. La început poate
+                                să pornească din lucruri care se întâmplă în cadrul abuzului fizic sau a celui
+                                psihologic.</p>
+                            <p>Câteva exemple de abuz sexual sunt:</p>
+                            <ul>
+                                <li>Te violează</li>
+                                <li>Te dezbrăcă cu forța</li>
+                                <li>Te filmează în timp ce întrețineți relații sexuale </li>
+                                <li>Te obligată să întrețină relații sexuale cu alte persoane</li>
+                            </ul>
+                        </div>
+                    </p-card>
+                </div>
+                <div class="col-6" style="margin-top: 2em;">
+                    <p-card styleClass="p-card-shadow"
+                        [style]="{'height': '20em', 'background-color': 'lightsteelblue', 'width': '90%', 'margin': 'auto'}">
+                        <div id="titlu">
+                            <label style="font-size: larger; font-weight: bold;">Abuzul social</label>
+                        </div>
+                        <div style="font-weight: bold;">
+                            <p>Este un tip de violență care are rolul de a izola social victima pentru ca agresorul să o
+                                poată controla mai ușor.</p>
+                            <p>Câteva exemple de abuz social sunt:</p>
+                            <ul>
+                                <li>Te face să te simți vinovat/ă că trebuie să pleci sau începe o ceartă pe această
+                                    temă</li>
+                                <li>Nu te lasă să petreci timp cu familia/prietenii</li>
+                                <li>Te acuză că îl/o înșeli</li>
+                                <li>Te face să te simți vinovat/ă că petreci timp cu alte persoane</li>
+                                <li>Te controlează prin a-ți spune ce poți sau nu să faci</li>
+                            </ul>
+                        </div>
+                    </p-card>
+                </div>
+                <div class="col-8" style="margin: auto; margin-top: 2em">
+                    <p-card styleClass="p-card-shadow" [style]="{'background-color': 'lightsteelblue'}">
+                        <div id="titlu">
+                            <label style="font-size: larger; font-weight: bold;">Abuzul psihologic</label>
+                        </div>
+                        <div style="font-weight: bold;">
+                            <p>Reprezintă o formă de abuz care stabilește cu ușurință dezechilibrul puterii într-o
+                                relație. Deseori nu poate să se observe cu ochiul liber, cum e în cazul violenței
+                                fizice, dar asta nu diminuează impactul acestui tip de abuz.</p>
+                            <p>Câteva exemple de abuz psihologic sunt:</p>
+                            <ul>
+                                <li>Blochează ușa ca să nu poți părăsi camera atunci când vă certați</li>
+                                <li>Încearcă să te intimideze prin a sta foarte aproape de tine</li>
+                                <li>Te intimidează pentru a te face să fii de acord cu el/ea</li>
+                                <li>Conduce agresiv pentru a te intimida</li>
+                                <li>Te amenință că îți va răni animalele de companie</li>
+                                <li>Nu te lasă să dormi</li>
+                                <li>Este extrem de gelos/geloasă sau posesiv/ă</li>
+                                <li>Te sună foarte des sau apare unde ești tu în mod neașteptat</li>
+                                <li>Te face să simți că nu faci nimic bine</li>
+                            </ul>
+                        </div>
+                    </p-card>
+                </div>
+                <div class="col-6" style="margin-top: 2em;">
+                    <p-card styleClass="p-card-shadow"
+                        [style]="{'height': '20em', 'background-color': 'lightsteelblue', 'width': '90%', 'margin': 'auto'}">
+                        <div id="titlu">
+                            <label style="font-size: larger; font-weight: bold;">Abuzul economic</label>
+                        </div>
+                        <div style="font-weight: bold;">
+                            <p>Reprezintă o limitare a victimei din punct de vedere financiar și nu numai, scopul
+                                agresorului fiind de a fi singurul care are acces la resursele familiale. </p>
+                            <p>Câteva exemple de abuz economic sunt:</p>
+                            <ul>
+                                <li>Verifică toți banii pe care i-ai cheltuit și îți cere să explici pe ce i-ai cheltuit
+                                </li>
+                                <li>Refuză să îți dea bani pentru mancare/doctor/transport</li>
+                                <li>Îți fură bani</li>
+                                <li>Îți cere să îți dai demisia</li>
+                                <li>Te obligă să îi dai banii pe care tu îi câștigi</li>
+                            </ul>
+                        </div>
+                    </p-card>
+                </div>
+                <div class="col-6" style="margin-top: 2em;">
+                    <p-card styleClass="p-card-shadow"
+                        [style]="{'height': '20em', 'background-color': 'lightsteelblue', 'width': '90%', 'margin': 'auto'}">
+                        <div id="titlu">
+                            <label style="font-size: larger; font-weight: bold;">Abuzul spiritual</label>
+                        </div>
+                        <div style="font-weight: bold;">
+                            <p>Reprezintă un tip de abuz în cadrul căruia agresorul interzice sau minimizează
+                                exprimările religioase, culturale sau etnice ale victimei, abuzatorul dorind să își
+                                impună propriile opinii și valori.</p>
+                            <p>Câteva exemple de abuz spiritual sunt:</p>
+                            <ul>
+                                <li>Îți interzice să mergi la biserică</li>
+                                <li>Îți interzice să vorbești în limba maternă</li>
+                                <li>Te obligă să mergi într-un spațiu religios ales de el/ea</li>
+                                <li>Te obligă să te convertești la o altă religie</li>
+                                <li>Îți interzice să citești anumite cărți</li>
+                            </ul>
+                        </div>
+                    </p-card>
+                </div>
+            </div>
+            <div class="col-8" style="margin: auto; margin-top: 2em">
+                <p-card styleClass="p-card-shadow" [style]="{'background-color': 'lightsteelblue'}">
+                    <div id="titlu">
+                        <h3>Acestea au fost doar câteva exemple de abuz, ele putând să fie diferite de la caz la caz. Cu
+                            toate acestea, dacă unele dintre ele au fost lucruri prin care ați trecut vă recomandăm să
+                            folosiți această platformă pentru a vă găsi un centru specific nevoilor dumneavoastră și să
+                            faceți demersurile necesare pentru a ieși din relația abuzivă.</h3>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-8" style="margin: auto; margin-top: 2em">
+                <p-card styleClass="p-card-shadow" [style]="{'background-color': 'lightsteelblue'}">
+                    <div id="titlu">
+                        <h3>Dacă doriți să ne ajutați în realizarea un sondaj privind violența domestică puteți accesa
+                            link-ul de mai jos pentru a completa un chestionar:
+                            <a href="https://forms.gle/va83UhZf7b7AE1ej8" target="_blank">https://forms.gle/va83UhZf7b7AE1ej8</a>
+                        </h3>
+                    </div>
+                </p-card>
             </div>
         </p-card>
     </div>

@@ -11,7 +11,6 @@ import com.licenta.alexandraionila.entities.Rezervare;
 import com.licenta.alexandraionila.services.EmailService;
 import com.licenta.alexandraionila.services.QRGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
