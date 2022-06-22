@@ -5,7 +5,7 @@
     font-family: 'Bahnschrift SemiBold';
 }
 
-#legislatia{
+#legislatia {
     width: 80%;
     margin-left: 10%;
 }
@@ -20,43 +20,36 @@ p {
 
 #descriere {
     margin-top: 3em;
-    width: 60%;
-    margin-left: -3%;
 }
 
 #links {
-    margin-top: 7em;
-    width: 21%;
     margin-left: 5%;
 }
 
 #definitie {
-    margin-top: 7em;
-    width: 80%;
-    margin-left: 3.5%;
+    margin-top: 4em;
+    width: 100%;
 }
 
 
 #cautaCentre {
-    
+    margin-top: 10em;
     text-align: center;
     font-weight: bold;
 }
 
 #cautaCentreButon {
     width: 10em;
-    
+
 }
 
 #cauta {
     margin-top: 1em;
-    
+
 }
 
 #ptquiz {
     margin-top: 7em;
-    width: 63%;
-    margin-left: 1%;
 }
 
 #raspquiz {
@@ -64,196 +57,34 @@ p {
     font-weight: bold;
 }
 
-#raspundeLaQuiz{
+#raspundeLaQuiz {
     width: 10em;
 }
 
 #ptcontact {
     margin-top: 7em;
-    width: 23%;
-    margin-left: 1%;
 }
 
 #mcontact {
     text-align: center;
-    font-weight: bold;
 }
 
-#apasaContact{
+#apasaContact {
     width: 10em;
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-
-
-
-
-a{
-	font-size: 18px;
-	font-family:'Open Sans';
-    color: white;
-    text-decoration: none;
-
+#imagine {
+    background-image: url('../../assets/1.png');
+    background-repeat: no-repeat;
+    height: 40em;
+    margin: auto;
+    background-size: cover;
 }
 
-input:focus,textarea:focus,select:focus{
-  border:1px solid #fafafa;
-  -webkit-box-shadow:0 0 6px #007eff;
-  -moz-box-shadow:0 0 5px #007eff;
-  box-shadow:0 0 5px #007eff;
-  outline: none;
-}
-
-sup{
-
-	font-size: 40px;
-}
-
-
-
-
-
-
-#container{
-	width: 100%;
-  text-align:center;
-}
-
-.whole{
-	display: inline-block;
-  
-}
-
-
-
-.type{
-	width: 425px;
-	border-radius: 5px 5px 0px 0px;
-	background-color: #1c0e69;
-	height: 62px;
-	border-bottom: 3px solid #140a4e;
-
-}
-
-.type p{
-	font-family:'Open Sans';
-    font-weight: 800;
-	font-size: 29px;
-	text-transform: uppercase;
-	color: white;
-	text-align: center;
-	padding-top: 10px;
-
-	
-
-}
-
-.plan{
-	width: 424px;
-	background-color: #110c2c;
-
-	border-radius: 0px 0px 5px 5px;
-    font-family:'Bahnschrift SemiBold';
-    font-style:condensed;
-    font-size: 100px;
-    color: white;
-    text-align: center;
-
-
-}
-.standard{
-	background-color: #3255ca;
-	border-bottom: 3px solid #28439b;
-}
-
-.ultimate{
-	background-color: #5d6a9a;
-	border-bottom: 3px solid #474f6f;
-}
-
-
-
-
-
-.header{
-	border-bottom: 1px solid #494a5a;
-	padding-bottom: 39px;
-
-
-}
-
-
-
-.month{
-	font-size: 20px;
-	color: #ffffff;
-	padding: 0px;
-	margin: -10px;
-}
-
-.price{
-	height:80px;
-}
-
-.cart{
-  
-  color:white;
-  position: relative;
-  top: 16px;
-  
-}
-
-.bottom{
-  
-  
-}
-
-.content{
-}
-
-.login_c{
-  width:500px;
-  background-color:#2b2937;
-  height:300px;
-  margin: 0 auto;
-  margin-top:40px;
-  border-radius:5px;
-  
-}
-
-.login_c input{
-  width: 350px;
-height: 40px;
-  border: 1px solid #494a5a;
-  margin-bottom:20px;
-  border-radius:5px;
-  padding-left: 10px;
-
-}
-
-
-.login{
-  background-color: #BC4B1A;
-	border-bottom: 3px solid #7C3618;
-  width:100%;
-  
-}
-
-.top{
-  margin-top:35px;
-}
-
-.nodisplay{
-  opacity: 0.1;
-}
-
-.selected{
-  background-color:#1F1B36;
-  margin:0px;
-  padding:0px;
+#textImagine {
+    height: 10em;
+    margin-top: 27em;
+    width: 70%;
+    margin-left: 30%;
+    color: whitesmoke;
 }

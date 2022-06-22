@@ -1,58 +1,22 @@
-<div id="body">
-
-
-
-    <style>
-        .container {
-            position: center;
-            
-        }
-
-        .text-block {
-            position: absolute;
-            bottom: 60px;
-            right: 300px;
-            background-color: rgb(39, 65, 121);
-            color: white;
-            padding-left: 50px;
-            padding-right: 50px;
-        }
-    </style>
-
-    <div class="container">
-        <img src="../assets/1.png" class="center" [style]="{'width': '1100px', 'height': '700px'}">
-        <div class="text-block">
-            <br>
-            <p style="font-family:Open Sans;font-size:35px;">
-                <font size="+12">
-
-                    VIOLENȚA DOMESTICĂ</font>
-            </p>
-
-
-            <p style="font-family:Bahnschrift SemiBold;font-size:28px;font-style:italic;">
-                Oricine poate să fie o victimă a violenței domestice indiferent
-                <br>
-                de se​​x, vârstă, religie sau clasă socială
-            </p>
-            <br>
+<div id="body" class="grid">
+    <div class="col-8">
+        <div id="imagine">
+            <div style="height: 1em;">
+            </div>
+            <div id="textImagine">
+                <p style="font-family:Open Sans;font-size:35px;margin-left: 20%;">VIOLENȚA DOMESTICĂ </p>
+                <p style="font-family:Bahnschrift SemiBold;font-size:28px;font-style:italic;">
+                    Oricine poate să fie o victimă a violenței domestice indiferent
+                    de se​​x, vârstă, religie sau clasă socială
+                </p>
+            </div>
         </div>
     </div>
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-
-    <div id="links">
-        <p-card class="center"
-            [style]="{'width': '60em', 'height': '15em', 'background-color': 'rgb(28, 41, 71)', 'color': 'white'}">
-            <div class="grid">
-
-                <div id="cautaCentre" class="center" [style]="{'width': '50em'}">
+    <div class="col-4">
+        <div id="links">
+            <p-card class="center"
+                [style]="{'height': '40em', 'background': 'radial-gradient(circle, rgba(108,106,107,1) 0%, rgba(9,9,9,1) 100%)', 'color': 'white'}">
+                <div id="cautaCentre">
                     <div>
                         <p style="font-family:Bahnschrift SemiBold;font-size:30px">
                             Dacă vă aflați într-o situație abuzivă puteți apela la unul <br>din centrele destinate
@@ -62,30 +26,27 @@
                     <div id="cauta">
                         <button pButton type="button" id="cautaCentreButon" label="Cauta Centre"
                             (click)="goToCautaCentre()"
-                            style="font-family:Bahnschrift SemiBold;font-size:30px"></button>
-
+                            style="font-family:Bahnschrift SemiBold; font-size:30px"></button>
                     </div>
-
                 </div>
-
-            </div>
-        </p-card>
+            </p-card>
+        </div>
     </div>
-
-
-    <br>
-    <br>
-
 
     <div id="definitie">
         <p-card styleClass="p-card-shadow"
-            [style]="{'width': '70em', 'height': '18em', 'background-color': 'rgb(39, 65, 121)', 'color': 'white'}">
-            <div id="abuzdef" class="center" [style]="{'width': '65em'}">
+            [style]="{'width': '100%', 'background': 'radial-gradient(circle, rgba(108,106,107,1) 0%, rgba(9,9,9,1) 100%)', 'color': 'white'}">
+            <div style="text-align: center;">
+                <h1>Definitia legală a violenţei domestice</h1>
+            </div>
+            <div style="width: 80%; margin-left: 10%;">
                 <p style="font-family:'Calibri Light';font-size:33px">
                     Art3. Violenţa domestică înseamnă orice inacţiune sau acţiune intenţionată
                     de violenţă fizică, sexuală, psihologică, economică, socială sau spirituală care se produce în
-                    mediul familial sau<br> domestic ori între soţi sau foşti soţi, precum şi între actuali sau foşti
-                    parteneri, indiferent dacă agresorul locuieşte sau a locuit împreună cu victima. <br> (LEGEA Nr.
+                    mediul familial sau domestic ori între soţi sau foşti soţi, precum şi între actuali sau foşti
+                    parteneri, indiferent dacă agresorul locuieşte sau a locuit împreună cu victima.
+                </p>
+                <p style="font-size: 20px;">(LEGEA Nr.
                     174/2018
                     din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie)
                 </p>
@@ -94,269 +55,88 @@
         </p-card>
     </div>
 
-    <br>
-    <br>
-
-    <div id="ptquiz">
-        <p-card class="center"
-            [style]="{'width': '50em', 'height': '15em', 'background-color': 'rgb(28, 41, 71)', 'color': 'white'}">
-            <div class="grid">
-
-                <div id="raspquiz" class="center" [style]="{'width': '36em'}">
-                    <div>
-                        <p style="font-family:Bahnschrift SemiBold;font-size:30px">
-                            Pentru a determina dacă sunteți o victimă a violenței<br> domestice puteți răspunde la
-                            următorul chestionar
-
-                        </p>
-                    </div>
-                    <div id="quiz">
-                        <button pButton type="button" id="raspundeLaQuiz" (click)="goToQuiz()" label="Formular"
-                            style="font-family:Bahnschrift SemiBold;font-size:30px"></button>
-
-                    </div>
-
+    <div id="descriere">
+        <p-card styleClass="p-card-shadow"
+            [style]="{ 'background': 'radial-gradient(circle, rgba(108,106,107,1) 0%, rgba(9,9,9,1) 100%)', 'color': 'white'}">
+            <div id="legislatia" class="center">
+                <div id="titluLegislatie">
+                    <h1>Legislatia actuală cu privire la
+                        abuzul domestic:</h1>
                 </div>
+                <p style="font-family:'Calibri Light';font-size:30px">
+                    ART. 7 (1) Autorităţile administraţiei publice centrale şi locale au obligaţia să ia
+                    măsurile
+                    necesare pentru prevenirea violenţei domestice, pentru preîntâmpinarea unor situaţii de
+                    încălcare
+                    repetată a drepturilor fundamentale ale victimelor violenţei domestice, inclusiv prin
+                    furnizarea de
+                    informaţii şi programe de educaţie despre modalităţile în care se pot preveni, evita,
+                    recunoaşte şi
+                    raporta cazurile de violenţă.
+                    <br>
+                    (LEGEA Nr. 174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea
+                    violenţei în familie, articolul 7 alineatul (1))
 
+                </p>
+                <p style="font-family:'Calibri Light';font-size:30px">
+                    ART. 7. g) măsurile ce pot fi dispuse prin ordinul de protecţie provizoriu şi, după caz,
+                    prin ordinul
+                    de
+                    protecţie, demersurile necesare pentru emiterea acestora şi procedura de judecată. <br>
+                    (LEGEA Nr.
+                    174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie,
+                    articolul 7
+                    alineatul (2) litera g)
+
+                </p>
+                <p style="font-family:'Calibri Light';font-size:30px">
+                    Pentru mai multe detalii puteti accesa urmatorul link:
+                    <br>
+                    <a style="color: white;" href="https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf"
+                        target="_blank">https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf</a>
+                </p>
             </div>
         </p-card>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <head>
-        <style>
-            table {
-                background-color: #537dee;
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
-
-            td,
-            th {
-                border: 2px solid #000000;
-                text-align: left;
-                padding: 8px;
-            }
-
-            tr:nth-child(even) {
-                background-color: #ffffff;
-            }
-        </style>
-    </head>
-
-
-    <br>
-
-
-    <body>
-        <div id="container">
-            <div class="whole">
-                <div class="type">
-                    <p>Violența fizică</p>
+    <div id="ptquiz" class="col-6">
+        <p-card class="center"
+            [style]="{'height': '25em', 'background': 'radial-gradient(circle, rgba(108,106,107,1) 0%, rgba(9,9,9,1) 100%)','color': 'white'}">
+            <div id="raspquiz" class="center">
+                <div>
+                    <p style="font-family:Bahnschrift SemiBold;font-size:30px">
+                        Pentru mai multe informaţii despre tipurile de violenţă domestică sau pentru a participa la un
+                        studiu anonim ce va va ajuta la determinarea situtiei personale va rugam mergeti la pagina
+                        informatii folosing butonul de mai jos.
+                    </p>
                 </div>
-                <div class="plan">
-
-                    <div class="header">
-                        <p class="month">vătămarea corporală ori a sănătății
-                            prin lovire, îmbrâncire, trântire, tragere de păr, ardere, strangulare, muşcare
-                            tăiere etc. <br> în orice formă și de
-                            orice intensitate</p>
-                    </div>
-                    <div class="content">
-
-                    </div>
-
+                <div id="quiz">
+                    <button pButton type="button" id="raspundeLaQuiz" (click)="goToQuiz()" label="Informaţii"
+                        style="font-family:Bahnschrift SemiBold;font-size:30px"></button>
                 </div>
             </div>
-            <div class="whole">
-                <div class="type standard">
-                    <p>Violența psihologică</p>
+        </p-card>
+    </div>
+
+
+
+    <div id="ptcontact" class="col-6">
+        <p-card class="center"
+            [style]="{'height': '25em', 'background': 'radial-gradient(circle, rgba(108,106,107,1) 0%, rgba(9,9,9,1) 100%)', 'color': 'white'}">
+            <div id="mcontact" class="center">
+                <div style="margin-top: 2em;">
+                    <p style="font-family:Bahnschrift SemiBold;font-size:30px">
+                        În cazul în care aveți sugestii despre cum am putea îmbunătății platforma
+                        sau dacă ați întâlnit diverse probleme, apăsați butonul de mai jos pentru
+                        a ne contacta.
+                    </p>
                 </div>
-                <div class="plan">
-
-                    <div class="header">
-
-                        <p class="month">impunerea voinței sau a controlului
-                            personal, provocarea de stări de
-                            tensiune și de<br> suferință psihică
-                            în orice mod și prin orice mijloace</p>
-                    </div>
-                    <div class="content">
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="whole ">
-                <div class="type ultimate">
-                    <p>Violența sexuală</p>
-                </div>
-                <div class="plan">
-
-                    <div class="header">
-
-                        <p class="month">agresiune sexuală, impunere de acte<br>
-                            degradante, hărțuire, intimidare,
-                            brutalitate <br>în vederea întreținerii
-                            unor relații<br> sexuale forțate, viol
-                            conjugal </p>
-                    </div>
-                    <div class="content">
-
-                    </div>
-
+                <div style="margin-top: 4em;">
+                    <button pButton type="button" id="apasaContact" (click)="goToContact()" label="Contact"
+                        style="font-family:Bahnschrift SemiBold;font-size:30px"></button>
                 </div>
             </div>
-            <div id="container">
-                <div class="whole">
-                    <div class="type">
-                        <p>Violența economică</p>
-                    </div>
-                    <div class="plan">
+        </p-card>
+    </div>
 
-                        <div class="header">
-
-                            <p class="month">interzicerea activității profesionale,
-                                <br>privare de mijloace economice,
-                                <br>interzicerea dreptului de a poseda,
-                                folosi <br>și dispune de bunurile comune
-                            </p>
-                        </div>
-                        <div class="content">
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="whole">
-                    <div class="type standard">
-                        <p>Violența socială</p>
-                    </div>
-                    <div class="plan">
-
-                        <div class="header">
-                            <p class="month">impunerea izolării persoanei de familie,
-                                <br>de comunitate și de prieteni, interzicerea
-                                frecventării instituției de învățământ,
-                                <br>impunerea izolării prin detenție
-                            </p>
-                        </div>
-                        <div class="content">
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="whole ">
-                    <div class="type ultimate">
-                        <p>Violența spirituală</p>
-                    </div>
-                    <div class="plan">
-
-                        <div class="header">
-                            <p class="month">subestimarea sau diminuarea importanței
-                                satisfacerii necesităților moral-spirituale
-                                <br>prin interzicere, limitare a accesului la<br> valorile culturale, etnice ori
-                                religioase
-                            </p>
-                        </div>
-                        <div class="content">
-
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <br>
-                <br>
-                <br>
-
-
-
-                <div id="descriere">
-                    <p-card styleClass="p-card-shadow"
-                        [style]="{'width': '80em', 'height': '37em', 'background-color': 'rgb(80, 120, 206)', 'color': 'white'}">
-                        <div id="legislatia" class="center" [style]="{'width': '65em'}">
-                            <div id="titluLegislatie">
-                                <h3 style="font-family:'Calibri Light';font-size:33px">Legislatia actuală cu privire la
-                                    abuzul domestic:</h3>
-                            </div>
-                            <p style="font-family:'Calibri Light';font-size:30px">
-                                ART. 7 (1) Autorităţile administraţiei publice centrale şi locale au obligaţia să ia
-                                măsurile
-                                necesare pentru prevenirea violenţei domestice, pentru preîntâmpinarea unor situaţii de
-                                încălcare
-                                repetată a drepturilor fundamentale ale victimelor violenţei domestice, inclusiv prin
-                                furnizarea de
-                                informaţii şi programe de educaţie despre modalităţile în care se pot preveni, evita,
-                                recunoaşte şi
-                                raporta cazurile de violenţă.
-                                <br>
-                                (LEGEA Nr. 174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea
-                                violenţei în familie, articolul 7 alineatul (1))
-
-                            </p>
-                            <p style="font-family:'Calibri Light';font-size:30px">
-                                ART. 7. g) măsurile ce pot fi dispuse prin ordinul de protecţie provizoriu şi, după caz,
-                                prin ordinul
-                                de
-                                protecţie, demersurile necesare pentru emiterea acestora şi procedura de judecată. <br>
-                                (LEGEA Nr.
-                                174/2018 din 13 iulie 2018 pentru prevenirea şi combaterea violenţei în familie,
-                                articolul 7
-                                alineatul (2) litera g)
-
-                            </p>
-                            <p style="font-family:'Calibri Light';font-size:30px">
-                                Pentru mai multe detalii puteti accesa urmatorul link:
-                                <br>
-                                <a href="https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf"
-                                    target="_blank">https://anes.gov.ro/wp-content/uploads/2018/07/174-mod-217.pdf</a>
-                            </p>
-                        </div>
-                    </p-card>
-                </div>
-            </div>
-
-
-            <br>
-            <br>
-
-
-            <div id="ptcontact">
-                <p-card class="center"
-                    [style]="{'width': '65em', 'height': '17em', 'background-color': 'rgb(28, 41, 71)', 'color': 'white'}">
-                    <div class="grid">
-
-                        <div id="mcontact" class="center" [style]="{'width': '60em'}">
-                            <div>
-                                <p style="font-family:Bahnschrift SemiBold;font-size:30px">
-                                    În cazul în care aveți sugestii despre cum am putea îmbunătății platforma <br>
-                                    sau dacă ați întâlnit diverse probleme, apăsați butonul de mai jos pentru <br>
-                                    a ne contacta
-                                </p>
-                            </div>
-                            <div id="contact">
-                                <button pButton type="button" id="apasaContact" (click)="goToContact()" label="Contact"
-                                    style="font-family:Bahnschrift SemiBold;font-size:30px"></button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </p-card>
-            </div>
-
-            <br>
-            <br>
+</div>
