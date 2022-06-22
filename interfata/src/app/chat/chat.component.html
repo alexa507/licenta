@@ -1,0 +1,45 @@
+<div id="body">
+    <p-card styleClass="p-card-shadow" [style]="{'height': '40em'}">
+        <div>
+            <div id="nume" *ngIf="!numeIntrodus" class="grid">
+                <div class="col-12">
+                    <h4 style="margin-top: 10px;">Introduceti numele cu care veti fi identificat in chat:</h4>
+                </div>
+                <div class="col-12">
+                    <input id="inputNume"  pInputText [(ngModel)]="username" type="text">
+                </div>
+                <div class="col-12">
+                    <button pButton type="button" label="OK" (click)="ok()"></button>
+                </div>
+            </div>
+            
+            <div *ngIf="numeIntrodus" style="text-align: center;">
+                <h3>Folositi chat-ul ca: <b><i>{{username}}</i></b></h3>
+            </div>
+            <div *ngIf="numeIntrodus" id="messagesBox">
+                <div id="message" *ngFor="let message of messages" class="grid">
+                    <div class="col-3">
+                        <label><b>{{message.username}}:</b></label>
+                    </div>
+                    <div class="col-9">
+                        <label>{{message.message}}</label>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="numeIntrodus" id="mesajBox">
+                <form name="form" (ngSubmit)="f.form.valid && sendMessage()" #f="ngForm" novalidate>
+                    <div class="form-group grid">
+                        <div class="col-10">
+                            <input pInputText name="mesaj" id="mesajInput" [(ngModel)]="form.message" required
+                                placeholder="Introduceti mesajul dumneavoastra">
+                        </div>
+                        <div class="col-2">
+
+                            <button pButton type="button" label="Trimite" id="trimiteButon" (click)="sendMessage()"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </p-card>
+</div>

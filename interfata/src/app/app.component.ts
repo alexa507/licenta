@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChatAdapter } from 'ng-chat';
 
 @Component({
   selector: 'app-root',

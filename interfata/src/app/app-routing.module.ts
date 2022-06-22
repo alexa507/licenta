@@ -8,6 +8,7 @@ import { AutentificareComponent } from './autentificare/autentificare.component'
 import { AdminGuard } from './auth/admin.guard';
 import { UserGuard } from './auth/user.guard';
 import { CautaCentruComponent } from './cauta-centru/cauta-centru.component';
+import { ChatComponent } from './chat/chat.component';
 import { ContactComponent } from './contact/contact.component';
 import { InregistrareComponent } from './inregistrare/inregistrare.component';
 import { PrimaPaginaComponent } from './prima-pagina/prima-pagina.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'centre', component: CautaCentruComponent },
   { path: 'formular', component: QuizComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'chat', component: ChatComponent },
   {
     path: 'admin',
     children: [

@@ -26,6 +26,8 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { QuizComponent } from './quiz/quiz.component';
 import { ContactComponent } from './contact/contact.component';
+import { NgChatModule } from 'ng-chat';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { ContactComponent } from './contact/contact.component';
     InregistrareComponent,
     CautaCentruComponent,
     QuizComponent,
-    ContactComponent
+    ContactComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ import { ContactComponent } from './contact/contact.component';
     MultiSelectModule,
     InputNumberModule,
     DialogModule,
-    InputTextareaModule
+    InputTextareaModule,
+    NgChatModule
   ],
   providers: [JWTInterceptor],
   bootstrap: [AppComponent]
