@@ -177,7 +177,7 @@ export class CautaCentruComponent implements OnInit {
         this.utilitatiSelectateCautare.forEach(usc => {
           utilitatiSelectate.push(usc.code);
         });
-        let utilitatiCheck = utilitatiSelectate.every(u => utilitati.includes(u));
+        let utilitatiCheck = utilitatiSelectate.some(u => utilitati.includes(u));
 
         if (centru.oras.toLowerCase() == this.orasSelectatCautare.code && centru.nrLocuriLibere > this.nrLocuriLiberCautare && utilitatiCheck) {
           this.centreFiltrareDupaCautare.push(centru);
