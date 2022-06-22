@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChatAdapter } from 'ng-chat';
 
 
 @Component({
@@ -9,9 +8,6 @@ import { ChatAdapter } from 'ng-chat';
   styleUrls: ['./prima-pagina.component.css']
 })
 export class PrimaPaginaComponent implements OnInit {
-
-  public adapter: ChatAdapter = {} as ChatAdapter;
-  public userId = 999;
 
   constructor(private router: Router) { }
 

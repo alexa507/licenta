@@ -25,9 +25,9 @@
     "primeicons": "^5.0.0",
     "primeng": "^13.4.1",
     "pusher-js": "^7.1.1-beta",
+    "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "rxjs": "~7.5.0"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.0",

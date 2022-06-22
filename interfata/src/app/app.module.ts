@@ -14,7 +14,6 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
-import { OAuthModule } from 'angular-oauth2-oidc';
 import { CautaCentruComponent } from './cauta-centru/cauta-centru.component';
 import { GMapModule } from 'primeng/gmap';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -26,7 +25,6 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { QuizComponent } from './quiz/quiz.component';
 import { ContactComponent } from './contact/contact.component';
-import { NgChatModule } from 'ng-chat';
 import { ChatComponent } from './chat/chat.component';
 
 
@@ -59,8 +57,7 @@ import { ChatComponent } from './chat/chat.component';
     MultiSelectModule,
     InputNumberModule,
     DialogModule,
-    InputTextareaModule,
-    NgChatModule
+    InputTextareaModule
   ],
   providers: [JWTInterceptor],
   bootstrap: [AppComponent]
