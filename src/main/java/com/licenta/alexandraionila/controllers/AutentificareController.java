@@ -99,7 +99,7 @@ public class AutentificareController {
         Set<Rol> roluri = new HashSet<>();
 
         if (roluriStr == null) {
-            Rol userRole = rolService.findByNume(EnumerareRoluri.USER)
+            Rol userRole = rolService.findByNume(EnumerareRoluri.EDITOR)
                 .orElseThrow(() -> new RolNotFoundException("Eroare: Rolul nu a fost gasit."));
             roluri.add(userRole);
         } else {
@@ -111,7 +111,7 @@ public class AutentificareController {
                         roluri.add(adminRole);
                         break;
                     default:
-                        Rol userRole = rolService.findByNume(EnumerareRoluri.USER)
+                        Rol userRole = rolService.findByNume(EnumerareRoluri.EDITOR)
                             .orElseThrow(() -> new RolNotFoundException("Eroare: Rolul nu a fost gasit."));
                         roluri.add(userRole);
                 }

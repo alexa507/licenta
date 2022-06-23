@@ -1,6 +1,6 @@
 package com.licenta.alexandraionila.entities;
 
 public enum EnumerareRoluri {
-    USER,
+    EDITOR,
     ADMIN
 }
