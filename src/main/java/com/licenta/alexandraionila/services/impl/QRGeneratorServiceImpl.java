@@ -37,11 +37,11 @@ public class QRGeneratorServiceImpl implements QRGeneratorService {
         MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
         //trimite mail catre end-user
         emailService.sendEmail(rezervare.getEmail(), "Rezervare pentru centrul: " + centru.getNume(),
-            "Rezervarea dumneavoastra cu id-ul: " + rezervare.getId() + "a fost efectuata. Gasiti atasat codul QR.",
+            "Rezervarea dumneavoastra cu id-ul: " + rezervare.getId() + " a fost efectuata. Gasiti atasat codul QR.",
             path.toString());
         //trimite mail catre centru
         emailService.sendEmail(centru.getEmail(), "Rezervare pentru: " + rezervare.getNume(),
-            "Rezervarea cu id-ul: " + rezervare.getId() + "a fost efectuata. Gasiti atasat codul QR.",
+            "Rezervarea cu id-ul: " + rezervare.getId() + " a fost efectuata. Gasiti atasat codul QR.",
             path.toString());
 
         return filePath + rezervare.getId().toString();
