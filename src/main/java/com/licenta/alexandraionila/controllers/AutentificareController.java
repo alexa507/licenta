@@ -10,8 +10,6 @@ import com.licenta.alexandraionila.entities.EnumerareRoluri;
 import com.licenta.alexandraionila.entities.Rol;
 import com.licenta.alexandraionila.entities.User;
 import com.licenta.alexandraionila.exceptions.RolNotFoundException;
-import com.licenta.alexandraionila.repositories.RolRepository;
-import com.licenta.alexandraionila.repositories.UserRepository;
 import com.licenta.alexandraionila.services.RolService;
 import com.licenta.alexandraionila.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

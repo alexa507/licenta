@@ -2,7 +2,6 @@ package com.licenta.alexandraionila.controllers;
 
 import com.licenta.alexandraionila.dtos.Message;
 import com.licenta.alexandraionila.dtos.UserDTO;
-import com.licenta.alexandraionila.entities.Centru;
 import com.licenta.alexandraionila.entities.EnumerareRoluri;
 import com.licenta.alexandraionila.entities.Rol;
 import com.licenta.alexandraionila.entities.User;
@@ -10,8 +9,6 @@ import com.licenta.alexandraionila.exceptions.RolNotFoundException;
 import com.licenta.alexandraionila.exceptions.UserNotFoundException;
 import com.licenta.alexandraionila.services.RolService;
 import com.licenta.alexandraionila.services.UserService;
-import liquibase.pro.packaged.M;
-import org.apache.catalina.UserDatabase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

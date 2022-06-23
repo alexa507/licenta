@@ -4,7 +4,6 @@ import com.licenta.alexandraionila.dtos.Message;
 import com.licenta.alexandraionila.dtos.SesiuneChatDTO;
 import com.licenta.alexandraionila.entities.SesiuneChat;
 import com.licenta.alexandraionila.exceptions.SesiuneChatNotFoundException;
-import com.licenta.alexandraionila.exceptions.SesiuneDuplicataPentruUserException;
 import com.licenta.alexandraionila.services.SesiuniChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

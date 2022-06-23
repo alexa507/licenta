@@ -3,11 +3,9 @@ package com.licenta.alexandraionila.services.impl;
 import com.licenta.alexandraionila.entities.SesiuneChat;
 import com.licenta.alexandraionila.repositories.SesiuniChatRepository;
 import com.licenta.alexandraionila.services.SesiuniChatService;
-import liquibase.pro.packaged.L;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
