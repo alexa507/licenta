@@ -81,7 +81,6 @@ export class CautaCentruComponent implements OnInit {
   getCentre() {
     this.serviceCentre.getCentre().subscribe(data => {
       this.centre = data;
-      console.log(this.centre)
       let orase: string[] = [];
       let utilitati: string[] = [];
       this.centre.forEach(centru => {
@@ -154,8 +153,6 @@ export class CautaCentruComponent implements OnInit {
     this.centruSelectat = event.overlay.dropOffPoint;
     this.infoWindow.setContent('' + this.centruSelectat.nume + '');
     this.infoWindow.open(event.map, event.overlay);
-    // event.map.setCenter();
-    console.log(this.centruSelectat);
     this.arataDetaliiCentru = true;
   }
 
@@ -165,7 +162,6 @@ export class CautaCentruComponent implements OnInit {
     this.cautareCentreDetaliata = false;
     this.faraRezultate = false;
     this.centreFiltrareDupaCautare = [];
-    console.log(this.nrLocuriLiberCautare);
     //verifica daca oras si nr de locuri libere sunt introduse
     if (this.orasSelectatCautare == null || this.nrLocuriLiberCautare == null) {
       this.messageService.add({ severity: 'warn', summary: '', detail: 'Alegeti orasul si numarul de locuri necesare.' })
@@ -204,7 +200,6 @@ export class CautaCentruComponent implements OnInit {
 
     if (this.faraRezultate) {
       //verifica daca exista rezultate pentru cautarea executata
-      console.log('niciun centru')
       this.messageService.add({ severity: 'error', summary: 'Oops!', detail: 'Cautare dvs. nu are niciun rezultate. Va rugam incercati alta cautare.' })
     } else {
       this.cautareCentreDetaliata = true;
@@ -220,12 +215,10 @@ export class CautaCentruComponent implements OnInit {
   }
 
   rezerva() {
-    console.log(this.centruSelectat)
     this.showDialogRezervare = true;
   }
 
   rezervaDinTable(centru: Centru) {
-    console.log(centru);
     this.centruSelectat = centru;
     this.showDialogRezervare = true;
   }
@@ -259,7 +252,6 @@ export class CautaCentruComponent implements OnInit {
         this.messageService.add({ severity: 'succes', summary: '', detail: 'Rezervarea dvs a fost creata cu succes.' });
         //updateaza centrul in care s-a facut rezervarea pentru a modifica nr de locuri disponibile
         this.serviceCentre.rezervaLocuriInCentru(this.centruSelectat.id, this.nrPersoaneRezervare).subscribe(data => {
-          console.log(data);
           this.arataDetaliiCentru = false;
           this.getCentre();
           this.rezervareCreata = true;

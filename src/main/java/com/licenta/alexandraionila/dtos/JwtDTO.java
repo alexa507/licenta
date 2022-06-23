@@ -9,13 +9,17 @@ public class JwtDTO {
     private String username;
     private String email;
     private List<String> roluri;
+    private String nume;
+    private String prenume;
 
-    public JwtDTO(String accessToken, Integer id, String username, String email, List<String> roluri) {
+    public JwtDTO(String accessToken, Integer id, String username, String email, List<String> roluri, String nume, String prenume) {
         this.token = accessToken;
         this.id = id;
         this.username = username;
         this.email = email;
         this.roluri = roluri;
+        this.nume = nume;
+        this.prenume = prenume;
     }
 
     public String getToken() {
@@ -64,5 +68,21 @@ public class JwtDTO {
 
     public void setRoluri(List<String> roluri) {
         this.roluri = roluri;
+    }
+
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public String getPrenume() {
+        return prenume;
+    }
+
+    public void setPrenume(String prenume) {
+        this.prenume = prenume;
     }
 }

@@ -1,24 +1,25 @@
 <div id="body">
     <p-card styleClass="p-card-shadow" [style]="{'height': '10em', 'width':'60%', 'margin-left': '20%'}">
         <div class="grid col-12">
-            <div class="col-6">
+            <div class="col-4">
                 <button pButton type="button" label="ADMINISTRARE CENTRE" (click)="centre()"></button>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <button pButton type="button" label="ADMINISTRARE USERI" (click)="useri()"></button>
+            </div>
+            <div class="col-4">
+                <button pButton type="button" label="INTRA IN CHAT" (click)="chat()"></button>
             </div>
         </div>
     </p-card>
     <p-card styleClass="p-card-shadow"
         [style]="{'height': '33em', 'width':'90%', 'margin-left': '5%', 'margin-top': '3em'}">
         <div *ngIf="existaMesaje" id="titlu">
-            <h3>Mesaje primite</h3>
+            <h3>Mesaje primite prin secțiunea 'Contact'</h3>
         </div>
         <div *ngIf="!existaMesaje" id="faraMesaje">
             <h2>Nu exista mesaje!</h2>
         </div>
-        <p-progressSpinner *ngIf="!incarcat" [style]="{width: '20%', 'margin-left':'40%', 'margin-top':'15em' }"
-            strokeWidth="5" animationDuration="4s"></p-progressSpinner>
         <div *ngIf="incarcat && existaMesaje" id="tabelMesaje">
             <p-table [value]="mesaje" [rows]="3" [showCurrentPageReport]="true" styleClass="p-datatable-customers"
                 [paginator]="true" [globalFilterFields]="['nume','prenume', 'email', 'dataCreare']">

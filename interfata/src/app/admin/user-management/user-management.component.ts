@@ -47,7 +47,6 @@ export class UserManagementComponent implements OnInit {
         this.listaUseri.push(userDTO);
       });
       this.incarcat = true;
-      console.log(this.listaUseri);
     }, errror => {
       this.messageService.add({ severity: 'error', summary: 'Eroare', detail: 'Lista de useri nu a putut fi recuperata.' });
     });
@@ -60,7 +59,6 @@ export class UserManagementComponent implements OnInit {
       icon: 'pi pi-info-circle',
       accept: () => {
         this.userService.deleteUser(user.id).subscribe(data => {
-          console.log(data);
           this.listaUseri = [];
           this.getAllUsers();
           this.messageService.add({ severity: 'succes', summary: '', detail: "User-ul a fost sters cu succes." });

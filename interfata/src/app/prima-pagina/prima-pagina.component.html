@@ -18,14 +18,26 @@
                 [style]="{'height': '40em', 'background': 'radial-gradient(circle, rgba(108,106,107,1) 0%, rgba(9,9,9,1) 100%)', 'color': 'white'}">
                 <div id="cautaCentre">
                     <div>
-                        <p style="font-family:Bahnschrift SemiBold;font-size:30px">
-                            Dacă vă aflați într-o situație abuzivă puteți apela la unul <br>din centrele destinate
+                        <p style="font-family:Bahnschrift SemiBold;font-size:25px">
+                            Dacă vă aflați într-o situație abuzivă puteți apela la unul din centrele destinate
                             pentru victimele abuzului domestic:
                         </p>
                     </div>
                     <div id="cauta">
                         <button pButton type="button" id="cautaCentreButon" label="Cauta Centre"
                             (click)="goToCautaCentre()"
+                            style="font-family:Bahnschrift SemiBold; font-size:30px"></button>
+                    </div>
+                </div>
+                <div id="chat">
+                    <div>
+                        <p style="font-family:Bahnschrift SemiBold;font-size:25px">
+                            Dacă aveți nevoie de asistență, consiliere sau orice altă informație puteți folosi chat-ul live:
+                        </p>
+                    </div>
+                    <div id="cauta">
+                        <button pButton type="button" id="cautaCentreButon" label="Chat"
+                            (click)="goToChat()"
                             style="font-family:Bahnschrift SemiBold; font-size:30px"></button>
                     </div>
                 </div>

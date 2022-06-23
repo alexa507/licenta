@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Mesaj } from 'src/app/entities/mesaj';
 import { ContactService } from 'src/app/servicii/contact.service';
+import { StocareTokenService } from 'src/app/servicii/stocare-token.service';
 
 @Component({
   selector: 'app-prima-pagina-admin',
@@ -18,7 +19,7 @@ export class PrimaPaginaAdminComponent implements OnInit {
   existaMesaje: boolean = false;
 
   constructor(private router: Router, private contactService: ContactService, 
-    private messageService: MessageService, private datePipe: DatePipe) { }
+    private messageService: MessageService, private datePipe: DatePipe, private tokenService: StocareTokenService) { }
 
   ngOnInit(): void {
     this.contactService.getMesaje().subscribe(data => {
@@ -38,5 +39,10 @@ export class PrimaPaginaAdminComponent implements OnInit {
 
   useri() {
     this.router.navigate(['/admin/user-management']);
+  }
+
+  chat() {
+    sessionStorage.setItem('chatUser', JSON.stringify(this.tokenService.getUser()));
+    this.router.navigate(['/chat']);
   }
 }

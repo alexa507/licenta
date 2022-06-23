@@ -37,7 +37,6 @@ export class CentreComponent implements OnInit {
       icon: 'pi pi-info-circle',
       accept: () => {
         this.service.deleteCentru(centru.id).subscribe(data => {
-          console.log(data);
           this.getAllCentre();
           this.messageService.add({ severity: 'succes', summary: '', detail: "Centrul a fost sters cu succes." });
         }, error => {

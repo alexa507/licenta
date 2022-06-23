@@ -26,6 +26,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { QuizComponent } from './quiz/quiz.component';
 import { ContactComponent } from './contact/contact.component';
 import { ChatComponent } from './chat/chat.component';
+import { NeautorizatComponent } from './neautorizat/neautorizat.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ChatComponent } from './chat/chat.component';
     CautaCentruComponent,
     QuizComponent,
     ContactComponent,
-    ChatComponent
+    ChatComponent,
+    NeautorizatComponent
   ],
   imports: [
     BrowserModule,

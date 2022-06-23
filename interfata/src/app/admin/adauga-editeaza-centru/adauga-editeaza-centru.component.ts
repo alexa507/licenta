@@ -33,7 +33,6 @@ export class AdaugaEditeazaCentruComponent implements OnInit {
     let centruEditString = sessionStorage.getItem('centruPtEdit');
     if (centruEditString != null) {
       this.centruPtEdit = JSON.parse(centruEditString);
-      console.log(this.centruPtEdit);
       this.nume = this.centruPtEdit.nume;
       this.adresa = this.centruPtEdit.adresa;
       this.oras = this.centruPtEdit.oras;
@@ -44,7 +43,6 @@ export class AdaugaEditeazaCentruComponent implements OnInit {
       this.nrLocuriMax = this.centruPtEdit.nrLocuriMax;
       this.latitudine = this.centruPtEdit.latitudine;
       this.longitudine = this.centruPtEdit.longitudine;
-      console.log(this.utilitati);
       this.editare = true;
     }
 
@@ -68,7 +66,6 @@ export class AdaugaEditeazaCentruComponent implements OnInit {
       centru.telefon = this.telefon;
       centru.utilitati = this.utilitati;
       this.service.salveazaCentru(centru).subscribe(data => {
-        console.log(data);
         this.messageService.add({ severity: 'succes', summary: '', detail: "Centrul a fost salvat cu succes." });
         this.router.navigate(['/admin/mentenanta-centre']);
       }, error => {
@@ -95,7 +92,6 @@ export class AdaugaEditeazaCentruComponent implements OnInit {
         centru.telefon = this.telefon;
         centru.utilitati = this.utilitati;
         this.service.editeazaCentru(centru, this.centruPtEdit.id).subscribe(data => {
-          console.log(data);
           this.messageService.add({ severity: 'succes', summary: '', detail: "Centrul a fost editat cu succes." });
           this.router.navigate(['/admin/mentenanta-centre']);
           sessionStorage.removeItem('centruPtEdit');

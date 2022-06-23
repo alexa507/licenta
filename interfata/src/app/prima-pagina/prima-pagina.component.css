@@ -33,7 +33,7 @@ p {
 
 
 #cautaCentre {
-    margin-top: 10em;
+    margin-top: 2em;
     text-align: center;
     font-weight: bold;
 }
@@ -45,7 +45,6 @@ p {
 
 #cauta {
     margin-top: 1em;
-
 }
 
 #ptquiz {
@@ -87,4 +86,9 @@ p {
     width: 70%;
     margin-left: 30%;
     color: whitesmoke;
+}
+
+#chat {
+    text-align: center;
+    margin-top: 6em;
 }

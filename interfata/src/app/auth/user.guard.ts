@@ -24,7 +24,6 @@ export class UserGuard implements CanActivate {
             console.log("User-ul nu este autentificat")
             return this.router.navigate(['/autentificare']);
         }
-        console.log(this.tokenService.getUser());
         if(this.tokenService.getToken() && this.tokenService.getUser().roluri.includes('EDITOR')) {
             return true;
         } else {

@@ -70,7 +70,9 @@ public class AutentificareController {
             userDetails.getId(),
             userDetails.getUsername(),
             userDetails.getEmail(),
-            roluri));
+            roluri,
+            userDetails.getNume(),
+            userDetails.getPrenume()));
     }
 
     @PostMapping(path = "/inregistrare")

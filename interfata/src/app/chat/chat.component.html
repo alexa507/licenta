@@ -1,18 +1,25 @@
 <div id="body">
-    <p-card styleClass="p-card-shadow" [style]="{'height': '40em'}">
+    <!-- Pentru useri normali -->
+    <p-card styleClass="p-card-shadow" [style]="{'height': '40em'}" *ngIf="!userAutentificat">
         <div>
             <div id="nume" *ngIf="!numeIntrodus" class="grid">
-                <div class="col-12">
+                <div class="col-12" *ngIf="!nuExistaSesiuni">
                     <h4 style="margin-top: 10px;">Introduceti numele cu care veti fi identificat in chat:</h4>
                 </div>
-                <div class="col-12">
-                    <input id="inputNume"  pInputText [(ngModel)]="username" type="text">
+                <div class="col-12" *ngIf="!nuExistaSesiuni">
+                    <input id="inputNume" pInputText [(ngModel)]="username" type="text">
                 </div>
-                <div class="col-12">
+                <div class="col-12" *ngIf="!nuExistaSesiuni">
                     <button pButton type="button" label="OK" (click)="ok()"></button>
                 </div>
+                <div class="col-12" *ngIf="nuExistaSesiuni">
+                    <h3 style="margin-top: 10px;">Ne pare rau, momentan nu exista nicio persoana disponibila.</h3>
+                    <h3 style="margin-top: 10px;">Va rugam incercati mai tarziu</h3>
+
+                    <button pButton type="button" style="margin-top: 7em;" label="Inapoi" (click)="inapoi()"></button>
+                </div>
             </div>
-            
+
             <div *ngIf="numeIntrodus" style="text-align: center;">
                 <h3>Folositi chat-ul ca: <b><i>{{username}}</i></b></h3>
             </div>
@@ -27,6 +34,45 @@
                 </div>
             </div>
             <div *ngIf="numeIntrodus" id="mesajBox">
+                <form *ngIf="!conversatieIncheiata" name="form" (ngSubmit)="f.form.valid && sendMessage()" #f="ngForm"
+                    novalidate>
+                    <div class="form-group grid">
+                        <div class="col-10">
+                            <input pInputText name="mesaj" id="mesajInput" [(ngModel)]="form.message" required
+                                placeholder="Introduceti mesajul dumneavoastra">
+                        </div>
+                        <div class="col-2">
+                            <button pButton type="button" label="Trimite" id="trimiteButon"
+                                (click)="sendMessage()"></button>
+                        </div>
+                    </div>
+                </form>
+                <div style="text-align: center;" *ngIf="conversatieIncheiata">
+                    <button pButton type="button" label="Paraseste chat-ul" id="trimiteButon"
+                        (click)="inapoi()"></button>
+                </div>
+            </div>
+        </div>
+    </p-card>
+
+    <!-- Pentru useri autentificati -->
+    <div id="deconectare" *ngIf="userAutentificat">
+        <button pButton type="button" label="Deconectare din chat" id="deconectareButon"
+            (click)="deconectare()"></button>
+    </div>
+    <p-card styleClass="p-card-shadow" [style]="{'height': '40em'}" *ngIf="userAutentificat">
+        <div>
+            <div id="messagesBox">
+                <div id="message" *ngFor="let message of messages" class="grid">
+                    <div class="col-3">
+                        <label><b>{{message.username}}:</b></label>
+                    </div>
+                    <div class="col-9">
+                        <label>{{message.message}}</label>
+                    </div>
+                </div>
+            </div>
+            <div id="mesajBox">
                 <form name="form" (ngSubmit)="f.form.valid && sendMessage()" #f="ngForm" novalidate>
                     <div class="form-group grid">
                         <div class="col-10">
@@ -34,12 +80,17 @@
                                 placeholder="Introduceti mesajul dumneavoastra">
                         </div>
                         <div class="col-2">
-
-                            <button pButton type="button" label="Trimite" id="trimiteButon" (click)="sendMessage()"></button>
+                            <button pButton type="button" label="Trimite" id="trimiteButon"
+                                (click)="sendMessage()"></button>
                         </div>
                     </div>
                 </form>
             </div>
+        </div>
+
+        <div id="conversatieIncheiata">
+            <button pButton type="button" label="Incepe o conversatie noua" id="conversatieIncheiataButon"
+                (click)="converstatieIncheiata()"></button>
         </div>
     </p-card>
 </div>

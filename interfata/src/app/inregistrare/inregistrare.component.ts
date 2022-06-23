@@ -33,7 +33,6 @@ export class InregistrareComponent implements OnInit {
         },
         err => {
           this.isSignUpFailed = true;
-          console.log(err);
           if(err.error.message == 'Eroare: Username-ul este deja folosit!') {
             this.messageService.add({severity: 'error', summary: 'Inregistrare esuata', detail: 'Username-ul este deja folosit.'});
           } else if (err.error.message == 'Eroare: Email-ul este deja folosit!') {

@@ -45,4 +45,8 @@ export class PrimaPaginaComponent implements OnInit {
   goToContact() {
     this.router.navigate(['/contact']);
   }
+
+  goToChat() {
+    this.router.navigate(['/chat']);
+  }
 }

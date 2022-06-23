@@ -52,3 +52,16 @@
 #mesajInput {
     width: 80%;
 }
+
+#deconectare {
+    height: 5em;
+}
+
+#deconectareButon {
+    float: right;
+}
+
+#conversatieIncheiata {
+    margin-top: 3em;
+    text-align: center;
+}

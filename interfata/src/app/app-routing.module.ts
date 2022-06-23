@@ -11,6 +11,7 @@ import { CautaCentruComponent } from './cauta-centru/cauta-centru.component';
 import { ChatComponent } from './chat/chat.component';
 import { ContactComponent } from './contact/contact.component';
 import { InregistrareComponent } from './inregistrare/inregistrare.component';
+import { NeautorizatComponent } from './neautorizat/neautorizat.component';
 import { PrimaPaginaComponent } from './prima-pagina/prima-pagina.component';
 import { QuizComponent } from './quiz/quiz.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'formular', component: QuizComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'chat', component: ChatComponent },
+  { path: 'neautorizat', component: NeautorizatComponent },
   {
     path: 'admin',
     children: [
