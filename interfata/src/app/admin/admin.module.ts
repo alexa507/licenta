@@ -20,6 +20,8 @@ import { AdaugaEditeazaCentruComponent } from './adauga-editeaza-centru/adauga-e
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DatePipe } from '@angular/common';
+import { DialogModule } from 'primeng/dialog';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 
@@ -45,7 +47,9 @@ import { DatePipe } from '@angular/common';
     AccordionModule,
     TableModule,
     ConfirmDialogModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    DialogModule,
+    MultiSelectModule
   ],
   providers: [
     JWTInterceptor,

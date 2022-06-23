@@ -111,9 +111,9 @@ public class AutentificareController {
                         roluri.add(adminRole);
                         break;
                     default:
-                        Rol userRole = rolService.findByNume(EnumerareRoluri.EDITOR)
+                        Rol editorRole = rolService.findByNume(EnumerareRoluri.EDITOR)
                             .orElseThrow(() -> new RolNotFoundException("Eroare: Rolul nu a fost gasit."));
-                        roluri.add(userRole);
+                        roluri.add(editorRole);
                 }
             });
         }
